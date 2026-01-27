@@ -1,0 +1,17 @@
+name: "✨ Feature Request"
+description: "새로운 기능 개발"
+labels: ["feature"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 기능 설명
+      placeholder: 어떤 기능인지에 대한 설명을 적어주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 상세 내용
+      placeholder: 구체적인 구현 아이디어를 적어주세요.
