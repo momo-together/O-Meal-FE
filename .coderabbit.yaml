@@ -1,0 +1,20 @@
+language: "ko-KR" # 리뷰 언어를 한국어로 설정
+early_access: false # 얼리 액세스 기능 비활성화
+
+reviews:
+  profile: "chill" # 리뷰 강도 설정 (chill: 관대함, assertive: 엄격함 등)
+  request_changes_workflow: false # PR에 변경 요청 워크플로우 비활성화
+  high_level_summary: false # PR의 고수준 요약 생성 활성화
+  poem: false # 코드 변경을 축하하는 시(poem) 생성 활성화
+  review_status: true # 리뷰 상태 표시 활성화
+  collapse_walkthrough: false # 상세 워크스루 섹션을 접지 않고 펼친 상태로 표시
+
+  auto_review:
+    enabled: true # 자동 리뷰 기능 활성화
+    drafts: false # Draft PR에 대한 자동 리뷰 비활성화
+    base_branches:
+      - main
+      - develop # develop 브랜치도 자동 리뷰 대상에 포함
+
+  chat:
+    auto_reply: true # 채팅에서 자동 응답 활성화
