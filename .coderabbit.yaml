@@ -1,12 +1,20 @@
-# .coderabbit.yaml
-language: "ko-KR" # 리뷰 언어 설정
+language: "ko-KR" # 리뷰 언어를 한국어로 설정
+early_access: false # 얼리 액세스 기능 비활성화
+
 reviews:
-  profile: "chill" # 리뷰 스타일 설정 ('chill'(일반) 또는 'assertive'(꼼꼼, 깐깐) 기본값: chill)
-  high_level_sumamry: false # PR 설명에 변경사항 상위 요약 추가 (기본값: true)
-  poem: false # 워크스루 코멘트에 재미 요소(시 등) 추가 (기본값: true)
+  profile: "chill" # 리뷰 강도 설정 (chill: 관대함, assertive: 엄격함 등)
+  request_changes_workflow: false # PR에 변경 요청 워크플로우 비활성화
+  high_level_summary: true # PR의 고수준 요약 생성 활성화
+  poem: true # 코드 변경을 축하하는 시(poem) 생성 활성화
+  review_status: true # 리뷰 상태 표시 활성화
+  collapse_walkthrough: false # 상세 워크스루 섹션을 접지 않고 펼친 상태로 표시
+
   auto_review:
-    enabled: true
-    drafts: false # Draft PR은 리뷰하지 않음
-  path_filters: # 리뷰에 포함/제외할 파일 경로 패턴 (예: "src/**", "!dist/**"; 기본값: 빈 목록)
-    - src/**
-    - !dist/**
+    enabled: true # 자동 리뷰 기능 활성화
+    drafts: false # Draft PR에 대한 자동 리뷰 비활성화
+    base_branches:
+      - main
+      - develop # develop 브랜치도 자동 리뷰 대상에 포함
+
+  chat:
+    auto_reply: true # 채팅에서 자동 응답 활성화
