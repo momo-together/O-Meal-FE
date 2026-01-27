@@ -1,0 +1,12 @@
+# .coderabbit.yaml
+language: "ko-KR" # 리뷰 언어 설정
+reviews:
+  profile: "chill" # 리뷰 스타일 설정 ('chill'(일반) 또는 'assertive'(꼼꼼, 깐깐) 기본값: chill)
+  high_level_sumamry: false # PR 설명에 변경사항 상위 요약 추가 (기본값: true)
+  poem: false # 워크스루 코멘트에 재미 요소(시 등) 추가 (기본값: true)
+  auto_review:
+    enabled: true
+    drafts: false # Draft PR은 리뷰하지 않음
+  path_filters: # 리뷰에 포함/제외할 파일 경로 패턴 (예: "src/**", "!dist/**"; 기본값: 빈 목록)
+    - src/**
+    - !dist/**
