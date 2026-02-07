@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Primary Colors (주조색) */
+  --color-primary-point: #ff7e36;
+  --color-primary-base: #f9f5f0;
+  --color-primary-text: #2c2520;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Secondary Colors (보조색) */
+  --color-secondary-stability: #8cb296;
+  --color-secondary-review: #ffe082;
+  --color-secondary-subtext: #9e9892;
+
+  /* Interaction States */
+  --color-state-hover: #ff9f6b;
+  --color-state-active: #fff0e6;
+
+  /* Gray Scale */
+  --color-gray-900: #2c2520;
+  --color-gray-600: #5d5550;
+  --color-gray-400: #9e9892;
+  --color-gray-200: #d4d0cc;
+  --color-gray-100: #efede9;
+
+  /* Background */
+  --color-bg-oatmeal: #f9f5f0;
+  --color-bg-white: #ffffff;
+  --color-bg-ai: #e6e6fa;
+
+  /* Status */
+  --color-status-success: #8cb296;
+  --color-status-review: #ffe082;
+  --color-status-error: #ff6c6c;
+
+  /* Typography - Font Family */
+  --font-suite: "SUITE Variable", "SUITE", sans-serif;
+  --font-pretendard: "Pretendard Variable", "Pretendard", sans-serif;
+
+  /* Typography - Font Size */
+  --text-h1: 26px;
+  --text-h2: 20px;
+  --text-h3: 18px;
+  --text-body1: 16px;
+  --text-body2: 14px;
+  --text-caption: 12px;
+
+  /* Typography - Line Height */
+  --leading-h1: 1.4;
+  --leading-h2: 1.4;
+  --leading-h3: 1.5;
+  --leading-body1: 1.6;
+  --leading-body2: 1.5;
+  --leading-caption: 1.4;
+
+  /* Typography - Letter Spacing */
+  --tracking-h1: -0.195px;
+  --tracking-h2: -0.15px;
+  --tracking-h3: -0.135px;
+  --tracking-body1: -0.12px;
+  --tracking-body2: -0.105px;
+  --tracking-caption: -0.09px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-oatmeal);
+  color: var(--color-primary-text);
+  font-family: var(--font-pretendard);
 }
