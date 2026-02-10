@@ -15,7 +15,7 @@ const buttonVariants = cva([], {
   variants: {
     variant: {
       tertiary: [
-        "text-body2",
+        "typo-body2",
         "font-semibold",
         "leading-body1",
         "tracking-body1",
