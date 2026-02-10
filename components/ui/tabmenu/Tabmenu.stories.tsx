@@ -11,5 +11,7 @@ export default meta;
 type Story = StoryObj<typeof Tabmenu>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    isSelectedTab: "home",
+  },
 };
