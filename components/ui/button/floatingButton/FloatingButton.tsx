@@ -3,7 +3,7 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
 
-type FloatingButtonVariantsType = "primary";
+type FloatingButtonVariantsType = "primary" | "primaryIcon";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -19,8 +19,13 @@ const floatingButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary: ["bg-primary-point", "text-white"],
+        primary: ["bg-primary-point", "text-white", "py-3", "px-6"],
+        primaryIcon: ["bg-primary-point", "text-white", "p-3"],
         /** 추후 다른 디자인 시스템이 추가된다면 이곳을 변경 */
+      },
+      shape: {
+        circle: ["p-3"],
+        pill: ["py-3", "px-6"],
       },
       disabled: {
         false: null,
