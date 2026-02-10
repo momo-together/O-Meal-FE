@@ -1,27 +1,43 @@
+import clsx from "clsx";
 import HomeIcon from "@/assets/icons/home.svg?react";
 import UserIcon from "@/assets/icons/user.svg?react";
 
-const Tabmenu = () => {
+type TabmenuType = "home" | "my";
+
+type TabInfoType = {
+  name: TabmenuType;
+  label: string;
+  icon: React.ReactElement;
+};
+
+const tabInfo: TabInfoType[] = [
+  { name: "home", label: "홈", icon: <HomeIcon /> },
+  { name: "my", label: "MY", icon: <UserIcon /> },
+];
+
+interface TabmenuProps {
+  isSelectedTab: TabmenuType;
+}
+
+const Tabmenu = ({ isSelectedTab }: TabmenuProps) => {
   return (
     <div
       role="menu"
-      className="flex w-100 bg-bg-white justify-between py-3 px-6 [&_svg]:w-4 [&_svg]:h-4"
+      className="flex w-100 bg-bg-white justify-between py-3 px-10"
     >
-      <button
-        type="button"
-        className="flex flex-col items-center justify-center w-fit typo-body2"
-      >
-        <HomeIcon />
-        <span>홈</span>
-      </button>
-
-      <button
-        type="button"
-        className="flex flex-col items-center justify-center w-fit typo-body2"
-      >
-        <UserIcon />
-        <span>MY</span>
-      </button>
+      {tabInfo.map((info) => (
+        <button
+          key={info.name}
+          type="button"
+          className={clsx(
+            "flex flex-col items-center justify-center w-fit [&_svg]:w-5",
+            isSelectedTab === info.name ? "text-primary-point" : "text-gray-900"
+          )}
+        >
+          {info.icon}
+          <span className="typo-body2 font-suit"> {info.label}</span>
+        </button>
+      ))}
     </div>
   );
 };
