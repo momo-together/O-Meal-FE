@@ -13,7 +13,7 @@
 
   /* Interaction States */
   --color-state-hover: #ff9f6b;
-  --color-state-active: #fff0e6;
+  --color-state-active: #e5662a;
 
   /* Gray Scale */
   --color-gray-900: #2c2520;
@@ -65,4 +65,8 @@ body {
   background: var(--color-bg-oatmeal);
   color: var(--color-primary-text);
   font-family: var(--font-pretendard);
+}
+
+button {
+  cursor: pointer;
 }
