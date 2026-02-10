@@ -35,11 +35,9 @@
 
   /* Typography - Font Family */
 
-  /*TODO : 필요시 해제 예정 * /
-  /* --font-suite: "SUIT Variable", "SUIT", sans-serif; */
-
   /*TODO : CDN에서 next/font로 변경 필요*/
   --font-pretendard: "Pretendard Variable", "Pretendard", sans-serif;
+  --font-suit: "SUIT Variable", "SUIT", sans-serif;
 
   /* Typography - Font Size */
   --text-h1: 26px;
