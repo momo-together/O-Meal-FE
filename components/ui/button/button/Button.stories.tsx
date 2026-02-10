@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import Button from "./Button";
 import LikeIcon from "@/assets/icons/like.svg?react";
 
