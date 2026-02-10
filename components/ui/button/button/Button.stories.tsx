@@ -17,3 +17,7 @@ export const Default: Story = {
     </Button>
   ),
 };
+
+export const Text: Story = {
+  render: (args) => <Button {...args}>로그아웃</Button>,
+};
