@@ -23,10 +23,6 @@ const floatingButtonVariants = cva(
         primaryIcon: ["bg-primary-point", "text-white", "p-3"],
         /** 추후 다른 디자인 시스템이 추가된다면 이곳을 변경 */
       },
-      shape: {
-        circle: ["p-3"],
-        pill: ["py-3", "px-6"],
-      },
       disabled: {
         false: null,
         true: ["opacity-50", "pointer-events-none"],
