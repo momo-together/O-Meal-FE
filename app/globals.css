@@ -13,7 +13,8 @@
 
   /* Interaction States */
   --color-state-hover: #ff9f6b;
-  --color-state-active: #fff0e6;
+  --color-state-active: #e5662a;
+  --color-shadow: #ff7e3633;
 
   /* Gray Scale */
   --color-gray-900: #2c2520;
@@ -33,7 +34,11 @@
   --color-status-error: #ff6c6c;
 
   /* Typography - Font Family */
-  --font-suite: "SUITE Variable", "SUITE", sans-serif;
+
+  /*TODO : 필요시 해제 예정 * /
+  /* --font-suite: "SUIT Variable", "SUIT", sans-serif; */
+
+  /*TODO : CDN에서 next/font로 변경 필요*/
   --font-pretendard: "Pretendard Variable", "Pretendard", sans-serif;
 
   /* Typography - Font Size */
@@ -59,10 +64,25 @@
   --tracking-body1: -0.12px;
   --tracking-body2: -0.105px;
   --tracking-caption: -0.09px;
+
+  /*layout */
+  --container-layout: 375px;
+}
+
+html {
+  background: var(--color-bg-oatmeal);
 }
 
 body {
-  background: var(--color-bg-oatmeal);
+  /*TODO : 영역을 잡기 위함, 추후 삭제 예정*/
+  border: 1px solid red;
+
   color: var(--color-primary-text);
   font-family: var(--font-pretendard);
+  max-width: var(--container-layout);
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
 }
