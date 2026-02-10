@@ -6,14 +6,15 @@ import { cva } from "class-variance-authority";
 type FloatingButtonVariantsType = "primary";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  children: React.ReactNode;
+  location: "right" | "left" | "mid";
   isDisabled: boolean;
   variant: FloatingButtonVariantsType;
 }
 
 const floatingButtonVariants = cva(
   [
-    "p-3 rounded-full flex justify-center items-center active:bg-state-active [&_svg]:w-6 [&_svg]:h-6",
+    "relative p-3 rounded-full flex gap-2 text-body1 font-bold leading-body1 tracking-body1 text-center justify-center items-center active:bg-state-active [&_svg]:w-6 [&_svg]:h-6 shadow-[0px_4px_12px_0px_var(--color-shadow)]",
   ],
   {
     variants: {
@@ -25,6 +26,11 @@ const floatingButtonVariants = cva(
         false: null,
         true: ["opacity-50", "pointer-events-none"],
       },
+      location: {
+        left: ["ml-6"],
+        mid: ["mx-auto"],
+        right: ["ml-auto", "mr-6"],
+      },
     },
     defaultVariants: {
       variant: "primary",
@@ -35,24 +41,28 @@ const floatingButtonVariants = cva(
 
 const FloatingButton = ({
   onClick,
-  Icon,
+  children,
   isDisabled,
   variant,
+  location,
   ...restProps
 }: ButtonProps) => {
   return (
-    <button
-      {...restProps}
-      onClick={onClick}
-      type="button"
-      className={floatingButtonVariants({
-        variant,
-        disabled: isDisabled,
-      })}
-      disabled={isDisabled}
-    >
-      {Icon && <Icon />}
-    </button>
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-layout">
+      <button
+        {...restProps}
+        onClick={onClick}
+        type="button"
+        className={floatingButtonVariants({
+          variant,
+          disabled: isDisabled,
+          location,
+        })}
+        disabled={isDisabled}
+      >
+        {children}
+      </button>
+    </div>
   );
 };
 
