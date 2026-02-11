@@ -18,10 +18,10 @@ const tabInfo: TabInfoType[] = [
 ];
 
 interface TabmenuProps {
-  isSelectedTab: TabmenuType;
+  selectedTab: TabmenuType;
 }
 
-const Tabmenu = ({ isSelectedTab }: TabmenuProps) => {
+const Tabmenu = ({ selectedTab }: TabmenuProps) => {
   return (
     <div
       role="tablist"
@@ -33,7 +33,7 @@ const Tabmenu = ({ isSelectedTab }: TabmenuProps) => {
           key={info.name}
           className={clsx(
             "flex flex-col items-center justify-center w-fit [&_svg]:w-5",
-            isSelectedTab === info.name ? "text-primary-point" : "text-gray-900"
+            selectedTab === info.name ? "text-primary-point" : "text-gray-900"
           )}
         >
           {info.icon}

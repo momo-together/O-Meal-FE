@@ -12,6 +12,6 @@ type Story = StoryObj<typeof Tabmenu>;
 
 export const Default: Story = {
   args: {
-    isSelectedTab: "home",
+    selectedTab: "home",
   },
 };
