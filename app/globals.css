@@ -35,11 +35,9 @@
 
   /* Typography - Font Family */
 
-  /*TODO : 필요시 해제 예정 * /
-  /* --font-suite: "SUIT Variable", "SUIT", sans-serif; */
-
   /*TODO : CDN에서 next/font로 변경 필요*/
   --font-pretendard: "Pretendard Variable", "Pretendard", sans-serif;
+  --font-suit: "SUIT Variable", "SUIT", sans-serif;
 
   /* Typography - Font Size */
   --text-h1: 26px;
@@ -65,8 +63,73 @@
   --tracking-body2: -0.105px;
   --tracking-caption: -0.09px;
 
+  /* Typography - Font Weight */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
   /*layout */
   --container-layout: 375px;
+}
+
+@utility typo-display1 {
+  font-size: var(--text-h1);
+  line-height: var(--leading-h1);
+  letter-spacing: var(--tracking-h1);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility typo-h1-title {
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: var(--tracking-h2);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility typo-h2-sub {
+  font-size: var(--text-h3);
+  line-height: var(--leading-h3);
+  letter-spacing: var(--tracking-h3);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility typo-body1 {
+  font-size: var(--text-body1);
+  line-height: var(--leading-body1);
+  letter-spacing: var(--tracking-body1);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility typo-body2 {
+  font-size: var(--text-body2);
+  line-height: var(--leading-body2);
+  letter-spacing: var(--tracking-body2);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility typo-caption {
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-caption);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility typo-button {
+  font-size: var(--text-body1);
+  line-height: var(--leading-body1);
+  letter-spacing: var(--tracking-body1);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility typo-button-sm {
+  font-size: var(--text-body2);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-body2);
+  font-weight: var(--font-weight-semibold);
+}
+
+@utility font-suit {
+  font-family: var(--font-suit);
 }
 
 html {

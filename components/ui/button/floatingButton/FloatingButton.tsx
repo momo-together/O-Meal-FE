@@ -14,7 +14,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const floatingButtonVariants = cva(
   [
-    "relative p-3 rounded-full flex w-fit gap-2 text-body1 font-bold leading-body1 tracking-body1 text-center justify-center items-center active:bg-state-active [&_svg]:w-6 [&_svg]:h-6 shadow-[0px_4px_12px_0px_var(--color-shadow)]",
+    "relative",
+    "p-3",
+    "rounded-full",
+    "flex w-fit gap-2",
+    "typo-button text-center justify-center items-center",
+    "active:bg-state-active",
+    "[&_svg]:w-6 [&_svg]:h-6",
+    "shadow-[0px_4px_12px_0px_var(--color-shadow)]",
   ],
   {
     variants: {
