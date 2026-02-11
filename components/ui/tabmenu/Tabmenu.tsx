@@ -22,8 +22,8 @@ interface TabmenuProps {
 const Tabmenu = ({ isSelectedTab }: TabmenuProps) => {
   return (
     <div
-      role="menu"
-      className="flex w-100 bg-bg-white justify-between py-3 px-10"
+      role="tablist"
+      className="flex w-full bg-bg-white justify-between py-3 px-10"
     >
       {tabInfo.map((info) => (
         <button
