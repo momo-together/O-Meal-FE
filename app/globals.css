@@ -63,64 +63,69 @@
   --tracking-body2: -0.105px;
   --tracking-caption: -0.09px;
 
+  /* Typography - Font Weight */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
   /*layout */
   --container-layout: 375px;
 }
 
-.typo-display1 {
+@utility typo-display1 {
   font-size: var(--text-h1);
   line-height: var(--leading-h1);
   letter-spacing: var(--tracking-h1);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
-.typo-h1-title {
+@utility typo-h1-title {
   font-size: var(--text-h2);
   line-height: var(--leading-h2);
   letter-spacing: var(--tracking-h2);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
-.typo-h2-sub {
+@utility typo-h2-sub {
   font-size: var(--text-h3);
   line-height: var(--leading-h3);
   letter-spacing: var(--tracking-h3);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
-.typo-body1 {
+@utility typo-body1 {
   font-size: var(--text-body1);
   line-height: var(--leading-body1);
   letter-spacing: var(--tracking-body1);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
-.typo-body2 {
+@utility typo-body2 {
   font-size: var(--text-body2);
   line-height: var(--leading-body2);
   letter-spacing: var(--tracking-body2);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
-.typo-caption {
+@utility typo-caption {
   font-size: var(--text-caption);
   line-height: var(--leading-caption);
   letter-spacing: var(--tracking-caption);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
 }
 
-.typo-button {
+@utility typo-button {
   font-size: var(--text-body1);
   line-height: var(--leading-body1);
   letter-spacing: var(--tracking-body1);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
-.typo-button-sm {
+@utility typo-button-sm {
   font-size: var(--text-body2);
   line-height: var(--leading-caption);
   letter-spacing: var(--tracking-body2);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
 html {
