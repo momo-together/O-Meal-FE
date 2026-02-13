@@ -3,7 +3,7 @@
 @theme inline {
   /* Primary Colors (주조색) */
   --color-primary-point: #ff7e36;
-  --color-primary-base: #f9f5f0;
+  --color-primary-base: #ff9f6b;
   --color-primary-text: #2c2520;
 
   /* Secondary Colors (보조색) */
@@ -161,4 +161,8 @@ button {
     outline: 2px solid var(--color-focus-ring);
     outline-offset: 2px;
   }
+}
+
+input {
+  outline: none;
 }
