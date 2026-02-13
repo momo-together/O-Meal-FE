@@ -1,12 +1,5 @@
-import AddIcon from "@/assets/icons/add.svg";
-import FloatingButton from "@/components/ui/button/floatingButton/FloatingButton";
+import Header from "@/components/layout/header/Header";
 
 export default function Home() {
-  return (
-    <div>
-      <FloatingButton variant="primaryIcon" location="right" isDisabled={false}>
-        <AddIcon />
-      </FloatingButton>
-    </div>
-  );
+  return <Header title="숙명여자대학교" />;
 }
