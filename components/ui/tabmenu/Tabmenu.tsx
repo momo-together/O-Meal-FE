@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import HomeIcon from "@/assets/icons/home.svg?react";
-import UserIcon from "@/assets/icons/user.svg?react";
 import Link from "next/link";
+import HomeIcon from "@/assets/icons/home.svg";
+import UserIcon from "@/assets/icons/user.svg";
 
 type TabmenuType = "home" | "my";
 
@@ -23,18 +23,12 @@ interface TabmenuProps {
 
 const Tabmenu = ({ selectedTab }: TabmenuProps) => {
   return (
-    <div
-      role="tablist"
-      className="flex w-full bg-bg-white justify-between py-3 px-10"
-    >
+    <div role="tablist" className="flex w-full bg-bg-white justify-between py-3 px-10">
       {tabInfo.map((info) => (
         <Link
           href={info.url}
           key={info.name}
-          className={clsx(
-            "flex flex-col items-center justify-center w-fit [&_svg]:w-5",
-            selectedTab === info.name ? "text-primary-point" : "text-gray-900"
-          )}
+          className={clsx("flex flex-col items-center justify-center w-fit [&_svg]:w-5", selectedTab === info.name ? "text-primary-point" : "text-gray-900")}
         >
           {info.icon}
           <span className="typo-body2">{info.label}</span>

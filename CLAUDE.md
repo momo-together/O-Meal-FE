@@ -14,7 +14,7 @@
 
 - **Biome**: 린터 및 포맷터 (ESLint + Prettier 대체)
 - **Storybook v10** (`@storybook/nextjs`, port 6006)
-- **SVG**: @svgr/webpack (`import Icon from "@/assets/icons/icon.svg?react"`)
+- **SVG**: @svgr/webpack (`import Icon from "@/assets/icons/icon.svg"`)
 
 ### 테스팅
 
@@ -159,7 +159,8 @@ useEffect(() => {
 
 #### 8. SVG 아이콘 Import
 
-- `import Icon from "@/assets/icons/name.svg?react"` 패턴 사용
+- `import Icon from "@/assets/icons/name.svg"` 패턴 사용 (기본 import = React 컴포넌트)
+- URL 문자열이 필요한 경우에만 `import iconUrl from "@/assets/icons/name.svg?url"` 사용
 
 ### 테스팅 규칙
 

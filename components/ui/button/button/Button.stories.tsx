@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import LikeIcon from "@/assets/icons/like.svg";
 import Button from "./Button";
-import LikeIcon from "@/assets/icons/like.svg?react";
 
 const meta: Meta<typeof Button> = {
   title: "UI/Button/Button",
