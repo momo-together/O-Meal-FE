@@ -140,6 +140,14 @@
   font-weight: var(--font-weight-semibold);
 }
 
+/* 텍스트 선택 막기 */
+@utility user-select {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+
 html {
   background: var(--color-bg-oatmeal);
 }
