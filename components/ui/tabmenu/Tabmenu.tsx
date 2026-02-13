@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import HomeIcon from "@/assets/icons/home.svg";
 import UserIcon from "@/assets/icons/user.svg";
+import { ROUTE } from "@/constants/routes";
 
 type TabmenuType = "home" | "my";
 
@@ -13,8 +14,8 @@ type TabInfoType = {
 };
 
 const tabInfo: TabInfoType[] = [
-  { name: "home", label: "홈", icon: <HomeIcon />, url: "/" },
-  { name: "my", label: "MY", icon: <UserIcon />, url: "/" },
+  { name: "home", label: "홈", icon: <HomeIcon />, url: ROUTE.HOME },
+  { name: "my", label: "MY", icon: <UserIcon />, url: ROUTE.MYPAGE.INDEX },
 ];
 
 interface TabmenuProps {

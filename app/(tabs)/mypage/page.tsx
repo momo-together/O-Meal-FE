@@ -3,6 +3,7 @@ import LikeIcon from "@/assets/icons/like.svg";
 import SettingIcon from "@/assets/icons/setting.svg";
 import Header from "@/components/layout/header/Header";
 import Button from "@/components/ui/button/button/Button";
+import { ROUTE } from "@/constants/routes";
 import NavigationLink from "./_components/navigationLink/NavigationLink";
 import ProfileImage from "./_components/profileImage/ProfileImage";
 
@@ -10,17 +11,17 @@ const navigationInfo = [
   {
     name: "찜한 맛집",
     Icon: LikeIcon,
-    navigateUrl: "/mypage/favorites",
+    navigateUrl: ROUTE.MYPAGE.FAVORITES,
   },
   {
     name: "내 활동 (리뷰/위키)",
     Icon: EditIcon,
-    navigateUrl: "/mypage/activity",
+    navigateUrl: ROUTE.MYPAGE.ACTIVITY,
   },
   {
     name: "프로필 정보 수정",
     Icon: SettingIcon,
-    navigateUrl: "/mypage/profile",
+    navigateUrl: ROUTE.MYPAGE.PROFILE,
   },
 ];
 
