@@ -4,6 +4,9 @@ import ImageInput from "./ImageInput";
 const meta: Meta<typeof ImageInput> = {
   title: "UI/Input/ImageInput",
   component: ImageInput,
+  args: {
+    onImageChange: (file: File) => console.log("selected:", file.name),
+  },
 };
 
 export default meta;
