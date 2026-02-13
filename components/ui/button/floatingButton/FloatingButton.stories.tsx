@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import AddIcon from "@/assets/icons/add.svg";
 import FloatingButton from "./FloatingButton";
-import AddIcon from "@/assets/icons/add.svg?react";
 
 const meta: Meta<typeof FloatingButton> = {
   title: "UI/Button/FloatingButton",

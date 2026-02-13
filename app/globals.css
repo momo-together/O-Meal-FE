@@ -28,6 +28,9 @@
   --color-bg-white: #ffffff;
   --color-bg-ai: #e6e6fa;
 
+  /* Focus */
+  --color-focus-ring: #3b82f6;
+
   /* Status */
   --color-status-success: #8cb296;
   --color-status-review: #ffe082;
@@ -99,6 +102,7 @@
 }
 
 @utility typo-body1 {
+  font-family: var(--font-pretendard);
   font-size: var(--text-body1);
   line-height: var(--leading-body1);
   letter-spacing: var(--tracking-body1);
@@ -106,6 +110,7 @@
 }
 
 @utility typo-body2 {
+  font-family: var(--font-pretendard);
   font-size: var(--text-body2);
   line-height: var(--leading-body2);
   letter-spacing: var(--tracking-body2);
@@ -120,6 +125,7 @@
 }
 
 @utility typo-button {
+  font-family: var(--font-pretendard);
   font-size: var(--text-body1);
   line-height: var(--leading-body1);
   letter-spacing: var(--tracking-body1);
@@ -127,6 +133,7 @@
 }
 
 @utility typo-button-sm {
+  font-family: var(--font-suit);
   font-size: var(--text-body2);
   line-height: var(--leading-caption);
   letter-spacing: var(--tracking-body2);
@@ -149,4 +156,9 @@ body {
 
 button {
   cursor: pointer;
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
 }
