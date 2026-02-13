@@ -12,8 +12,8 @@
   --color-secondary-subtext: #9e9892;
 
   /* Interaction States */
-  --color-state-hover: #ff9f6b;
-  --color-state-active: #e5662a;
+  --color-state-hover: #e5662a;
+  --color-state-active: #cc5a25;
   --color-shadow: #ff7e3633;
 
   /* Gray Scale */
@@ -65,21 +65,25 @@
 
   /* Typography - Font Weight */
   --font-weight-regular: 400;
+  --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
   /*layout */
   --container-layout: 375px;
 }
 
 @utility typo-display1 {
+  font-family: var(--font-suit);
   font-size: var(--text-h1);
   line-height: var(--leading-h1);
   letter-spacing: var(--tracking-h1);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-extrabold);
 }
 
 @utility typo-h1-title {
+  font-family: var(--font-suit);
   font-size: var(--text-h2);
   line-height: var(--leading-h2);
   letter-spacing: var(--tracking-h2);
@@ -87,17 +91,18 @@
 }
 
 @utility typo-h2-sub {
+  font-family: var(--font-suit);
   font-size: var(--text-h3);
   line-height: var(--leading-h3);
   letter-spacing: var(--tracking-h3);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
 }
 
 @utility typo-body1 {
   font-size: var(--text-body1);
   line-height: var(--leading-body1);
   letter-spacing: var(--tracking-body1);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-medium);
 }
 
 @utility typo-body2 {
@@ -126,10 +131,6 @@
   line-height: var(--leading-caption);
   letter-spacing: var(--tracking-body2);
   font-weight: var(--font-weight-semibold);
-}
-
-@utility font-suit {
-  font-family: var(--font-suit);
 }
 
 html {

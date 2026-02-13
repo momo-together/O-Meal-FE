@@ -37,7 +37,7 @@ const Tabmenu = ({ selectedTab }: TabmenuProps) => {
           )}
         >
           {info.icon}
-          <span className="typo-body2 font-suit"> {info.label}</span>
+          <span className="typo-body2">{info.label}</span>
         </Link>
       ))}
     </div>
