@@ -14,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const buttonVariants = cva([], {
   variants: {
     variant: {
-      tertiary: ["typo-button-sm", "text-center"],
+      tertiary: ["typo-button-sm", "text-center", "text-gray-400"],
     },
   },
   defaultVariants: {
