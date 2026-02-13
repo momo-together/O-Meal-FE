@@ -13,11 +13,11 @@ interface LabeledInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const LabeledInput = ({ value, onChange, errorMessage, id, label, ...restProps }: LabeledInputProps) => {
   return (
-    <div className="flex flex-col items-center justify-start gap-2">
+    <div className="flex flex-col justify-center gap-2">
       <label htmlFor={id} className="typo-body2">
         {label}
       </label>
-      <div className="flex flex-col items-center justify-start gap-1 typo-body1">
+      <div className="flex flex-col justify-center gap-1 typo-body1">
         <TextField id={id} value={value} onChange={onChange} isError={!!errorMessage} {...restProps} />
         <span aria-live="polite" className="typo-caption text-status-error min-h-5">
           {errorMessage}
