@@ -7,20 +7,46 @@
 - **Next.js 16** (App Router)
 - **React 19**
 - **TypeScript 5**
-- **Tailwind CSS v4**
+- **Tailwind CSS v4** (`@theme inline` + `@utility` 방식)
+- **Variant 관리**: class-variance-authority (cva), clsx
 
 ### 개발 도구
 
 - **Biome**: 린터 및 포맷터 (ESLint + Prettier 대체)
+- **Storybook v10** (`@storybook/nextjs`, port 6006)
+- **SVG**: @svgr/webpack (`import Icon from "@/assets/icons/icon.svg?react"`)
 
 ### 테스팅
 
-- **Jest 30**: 테스트 러너
+- **Vitest**: 테스트 러너
 - **Testing Library**: React 컴포넌트 테스트 (`@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`)
+- **Playwright**: 브라우저 테스트
 
 ### 패키지 매니저
 
 - **pnpm** (workspace 지원)
+
+## 프로젝트 구조
+
+```
+app/                    # Next.js App Router
+  layout.tsx            # Root layout (Pretendard, SUIT 폰트 CDN)
+  globals.css           # 디자인 토큰 + 타이포그래피 유틸리티
+
+assets/
+  icons/                # SVG 아이콘 (add, like, home, user)
+
+components/             # 공통 컴포넌트
+```
+
+## 디자인 토큰 (globals.css)
+
+`@theme inline` 블록에서 CSS 변수로 정의. Tailwind 유틸리티 클래스로 사용 가능.
+
+- **Colors**: `primary-point`, `primary-base`, `primary-text`, `secondary-*`, `state-hover/active`, `gray-*`, `bg-*`, `status-*`
+- **Typography**: `typo-display1`, `typo-h1-title`, `typo-h2-sub`, `typo-body1`, `typo-body2`, `typo-caption`, `typo-button`, `typo-button-sm`
+- **Fonts**: Pretendard Variable (본문), SUIT Variable (제목)
+- **Layout**: `max-w-layout` (375px)
 
 ## 코딩 컨벤션
 
@@ -42,7 +68,13 @@
 
 ### 컴포넌트 작성 규칙
 
-#### 1. 파일 구조
+#### 1. 파일/디렉토리 네이밍
+
+- 컴포넌트 파일명: PascalCase (e.g., `FloatingButton.tsx`)
+- 디렉토리명: camelCase (e.g., `floatingButton/`)
+- 각 컴포넌트마다 `.stories.tsx` 파일 작성 (Storybook title: `"UI/카테고리/컴포넌트명"`)
+
+#### 2. 파일 구조
 
 ```typescript
 // Component.tsx
@@ -59,19 +91,39 @@ const Component = ({ propName, optionalProp = false }: ComponentProps) => {
 export default Component;
 ```
 
-#### 2. 스타일링
+#### 3. 스타일링
 
 - **Tailwind CSS** 클래스를 사용하여 스타일링
 - 인라인 `className`에 Tailwind 유틸리티 클래스 작성
+- **cva**: variant가 있는 컴포넌트에서 사용
+- **clsx**: 조건부 스타일링에 사용
 
-#### 3. Props 인터페이스
+#### 3-1. Tailwind CSS v4 문법 리뷰 (필수)
+
+> **배경**: 팀이 Tailwind CSS v4에 익숙하지 않아, `@utility` 같은 유용한 기능을 개발 단계에서 활용하지 못하고 PR 리뷰에서야 발견한 경험이 있습니다. 이를 방지하기 위해 Claude는 스타일링 코드를 작성하거나 리뷰할 때 현재 상황에 적용 가능한 Tailwind v4 문법을 **적극적으로 소개**해야 합니다.
+
+**지침**:
+
+- 컴포넌트 스타일링 작업 시, 해당 작업에 유용한 Tailwind v4 문법이 있다면 코드와 함께 간단한 설명을 제공할 것
+- 기존 코드에서 v4 문법으로 개선할 수 있는 부분이 보이면 제안할 것
+- 단, 불필요하거나 과도한 소개는 지양하고 **현재 작업에 직접 관련된 문법만** 안내할 것
+
+**프로젝트에서 활용 중인 v4 문법**:
+
+| 문법 | 용도 | 프로젝트 사용 예시 |
+|------|------|---------------------|
+| `@theme inline` | CSS 변수 기반 디자인 토큰 정의 → Tailwind 유틸리티로 자동 매핑 | `globals.css`의 색상, 타이포그래피, 레이아웃 토큰 |
+| `@utility` | 커스텀 유틸리티 클래스 정의 (여러 CSS 속성을 하나의 클래스로 묶음) | `typo-display1`, `typo-body1` 등 타이포그래피 유틸리티 |
+
+
+#### 4. Props 인터페이스
 
 - Props는 항상 `interface`로 정의 (type 사용 지양)
 - 컴포넌트명 + Props 네이밍 (`ComponentProps`)
 - JSDoc 주석으로 Props 설명 추가
 - Optional props에는 기본값 설정
 
-#### 4. 접근성 (a11y)
+#### 5. 접근성 (a11y)
 
 - `aria-label`, `aria-hidden` 등 ARIA 속성 적극 활용
 - `tabIndex`로 키보드 네비게이션 지원
@@ -89,7 +141,7 @@ export default Component;
 </div>
 ```
 
-#### 5. Biome Ignore 주석
+#### 6. Biome Ignore 주석
 
 - 특정 규칙을 무시해야 할 경우 이유와 함께 주석 작성
 
@@ -100,10 +152,14 @@ useEffect(() => {
 }, []);
 ```
 
-#### 6. 기본 Export
+#### 7. 기본 Export
 
 - 컴포넌트는 기본 export 사용 (`export default Component`)
 - 유틸리티 함수나 타입은 named export 사용 가능
+
+#### 8. SVG 아이콘 Import
+
+- `import Icon from "@/assets/icons/name.svg?react"` 패턴 사용
 
 ### 테스팅 규칙
 
@@ -123,12 +179,12 @@ useEffect(() => {
 import { formatDate } from "./formatDate";
 
 describe("formatDate", () => {
-  it("should format date to YYYY-MM-DD", () => {
+  it("YYYY-MM-DD 형식으로 포맷팅되어야 한다.", () => {
     const date = new Date("2024-01-15");
     expect(formatDate(date)).toBe("2024-01-15");
   });
 
-  it("should handle invalid date", () => {
+  it("유효하지 않는 문자를 받는다면 빈문자열을 반환해야 한다.", () => {
     expect(formatDate(null)).toBe("");
   });
 });
@@ -170,6 +226,7 @@ pnpm install
 pnpm dev          # 개발 서버 실행
 pnpm build        # 프로덕션 빌드
 pnpm test         # 테스트 실행
+pnpm storybook    # Storybook 실행 (port 6006)
 ```
 
 ### 코드 품질 관리
@@ -210,7 +267,8 @@ https://figma.com/design/:fileKey/:fileName?node-id=:nodeId
 1. **접근성을 고려**한 마크업과 ARIA 속성 사용
 2. **TypeScript strict mode** 준수 - any 타입 사용 지양
 3. **Biome 규칙** 준수 - 커밋 전 반드시 검사
-4. **테스트 작성** - Jest를 통한 도메인 로직 테스트
+4. **테스트 작성** - Vitest를 통한 도메인 로직 테스트
+5. **Tailwind v4 문법 안내** - 스타일링 코드 작성/리뷰 시 현재 작업에 유용한 Tailwind CSS v4 문법이 있다면 사용자에게 소개할 것 (상세: 코딩 컨벤션 > 3-1 참고)
 
 ## Git 브랜치 전략
 
