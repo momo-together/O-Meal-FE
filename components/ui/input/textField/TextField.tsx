@@ -7,7 +7,7 @@ interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const textFieldVariants = cva(
-  ["w-full typo-body1 rounded-xl py-3 px-4 border border-gray-200 bg-bg-white focus:border-primary-base placeholder:text-gray-400"],
+  ["w-full typo-body2 rounded-xl py-3 px-4 border border-gray-200 bg-bg-white focus:border-primary-base placeholder:text-gray-400"],
   {
     variants: {
       disabled: {

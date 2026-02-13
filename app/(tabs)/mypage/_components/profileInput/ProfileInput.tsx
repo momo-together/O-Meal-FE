@@ -9,7 +9,7 @@ const ProfileInput = () => {
     setImage(image);
     // TODO : 서버에 전송하는 로직
   };
-  return <ImageInput id="profile-image" onImageChange={() => submitImage} defaultImage="/fallback.png" />;
+  return <ImageInput id="profile-image" onImageChange={() => submitImage} />;
 };
 
 export default ProfileInput;
