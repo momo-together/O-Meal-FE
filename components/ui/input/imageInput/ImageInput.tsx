@@ -2,8 +2,8 @@
 
 import { type InputHTMLAttributes, useEffect, useRef, useState } from "react";
 import CameraIcon from "@/assets/icons/camera.svg";
+import SafeImage from "@/components/ui/safeImage/SafeImage";
 import { FALLBACK_IMAGE } from "@/constants/image";
-import SafeImage from "../../safeImage/SafeImage";
 
 interface ImageInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** 현재 이미지 URL */
