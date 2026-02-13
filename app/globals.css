@@ -153,9 +153,6 @@ html {
 }
 
 body {
-  /*TODO : 영역을 잡기 위함, 추후 삭제 예정*/
-  border: 1px solid red;
-
   color: var(--color-primary-text);
   font-family: var(--font-pretendard);
   max-width: var(--container-layout);
