@@ -37,7 +37,7 @@ const ImageInput = ({ defaultImage, onImageChange, ...restProps }: ImageInputPro
       </div>
 
       <div className="absolute right-0 bottom-0 flex size-8 items-center justify-center rounded-full bg-bg-white text-gray-200 p-1">
-        <input type="file" accept="image/*" id={restProps.id} className="hidden" onChange={handlePreviewImage} {...restProps} />
+        <input {...restProps} type="file" accept="image/*" id={restProps.id} className="hidden" onChange={handlePreviewImage} />
         <CameraIcon />
       </div>
     </label>
