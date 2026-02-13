@@ -4,7 +4,7 @@ import SettingIcon from "@/assets/icons/setting.svg";
 import Header from "@/components/layout/header/Header";
 import Button from "@/components/ui/button/button/Button";
 import NavigationLink from "./_components/navigationLink/NavigationLink";
-import ProfileInput from "./_components/profileInput/ProfileInput";
+import ProfileImage from "./_components/profileImage/ProfileImage";
 
 const navigationInfo = [
   {
@@ -28,6 +28,7 @@ const navigationInfo = [
 const mockData = {
   name: "오밀오밀",
   school: "숙명여대",
+  profileImageUrl: "/",
 };
 
 const MyPage = () => {
@@ -36,8 +37,8 @@ const MyPage = () => {
       <Header title="마이 페이지" />
 
       <section className="flex flex-col items-center gap-2 py-8" aria-label="프로필 정보">
-        <ProfileInput />
-        <h2 className="typo-h2-sub mt-2">{mockData.name}님</h2>
+        <ProfileImage src={mockData.profileImageUrl} />
+        <h2 className="typo-body1">{mockData.name}님</h2>
         <p className="typo-caption text-secondary-subtext">{mockData.school} 인증됨</p>
       </section>
 
