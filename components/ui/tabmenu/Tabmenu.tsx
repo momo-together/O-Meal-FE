@@ -23,12 +23,12 @@ interface TabmenuProps {
 
 const Tabmenu = ({ selectedTab }: TabmenuProps) => {
   return (
-    <div role="tablist" className="flex w-full bg-bg-white justify-between py-3 px-10">
+    <div role="tablist" className="flex w-full bg-bg-white justify-center gap-24 py-3">
       {tabInfo.map((info) => (
         <Link
           href={info.url}
           key={info.name}
-          className={clsx("flex flex-col items-center justify-center w-fit [&_svg]:w-5", selectedTab === info.name ? "text-primary-point" : "text-gray-900")}
+          className={clsx("flex flex-col items-center justify-center w-fit [&_svg]:w-4", selectedTab === info.name ? "text-primary-point" : "text-gray-900")}
         >
           {info.icon}
           <span className="typo-body2">{info.label}</span>
