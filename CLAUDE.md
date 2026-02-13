@@ -72,7 +72,7 @@ components/             # 공통 컴포넌트
 
 - 컴포넌트 파일명: PascalCase (e.g., `FloatingButton.tsx`)
 - 디렉토리명: camelCase (e.g., `floatingButton/`)
-- 각 컴포넌트마다 `.stories.tsx` 파일 작성 (Storybook title: `"UI/카테고리/컴포넌트명"`)
+- 각 컴포넌트마다 `.stories.tsx` 파일 작성 (Storybook title: 컴포넌트 디렉토리 경로를 따름, e.g., `"layout/Header/Header"`)
 
 #### 2. 파일 구조
 
