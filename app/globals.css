@@ -162,3 +162,7 @@ button {
     outline-offset: 2px;
   }
 }
+
+input {
+  outline: none;
+}
