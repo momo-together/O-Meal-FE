@@ -12,7 +12,7 @@ interface RestaurantCardProps {
 
 const RestaurantCard = ({ name, imageUrl, href }: RestaurantCardProps) => {
   return (
-    <Link href={href} className="block overflow-hidden rounded-2xl bg-bg-white p-3 pb-4 shadow-2xs" aria-label={`맛집 ${name}`}>
+    <Link href={href} className="block overflow-hidden rounded-2xl bg-bg-white p-3 pb-4" aria-label={`맛집 ${name}`}>
       <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
         <Image src={imageUrl} alt={`${name} 사진`} fill className="object-cover" sizes="(max-width: 375px) 100vw, 375px" />
       </div>
