@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import ArrowLeft from "@/assets/icons/arrow-left.svg";
 
 interface HeaderProps {
@@ -6,9 +9,11 @@ interface HeaderProps {
 }
 
 const Header = ({ title }: HeaderProps) => {
+  const router = useRouter();
+
   return (
     <header className="relative flex py-2 w-full items-center bg-bg-oatmeal">
-      <button type="button" aria-label="뒤로 가기" className="absolute left-4 flex items-center justify-center p-1">
+      <button type="button" aria-label="뒤로 가기" className="absolute left-4 flex items-center justify-center p-1" onClick={() => router.back()}>
         <ArrowLeft aria-hidden="true" className="h-4 w-4 text-gray-900" />
       </button>
       <h1 className="typo-body1 mx-auto text-primary-text user-select">{title}</h1>
