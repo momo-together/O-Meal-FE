@@ -3,22 +3,23 @@
 import { cva } from "class-variance-authority";
 import type { ButtonHTMLAttributes } from "react";
 
-// TODO : primary, secondary 버튼 사용시 정의
-type ButtonVariantsType = "tertiary";
+// TODO :  secondary 버튼 사용시 정의
+type ButtonVariantsType = "tertiary" | "primary";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant: ButtonVariantsType;
 }
 
-const buttonVariants = cva([], {
+const buttonVariants = cva(["py-3", "w-full", "typo-body2"], {
   variants: {
     variant: {
-      tertiary: ["typo-button-sm", "text-center", "text-gray-400"],
+      primary: ["bg-primary-point", "text-bg-white", "rounded-xl"],
+      tertiary: ["py-0", "typo-button-sm", "text-center", "text-gray-400"],
     },
   },
   defaultVariants: {
-    variant: "tertiary",
+    variant: "primary",
   },
 });
 
