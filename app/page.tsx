@@ -1,5 +1,5 @@
-import Header from "@/components/layout/header/Header";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <Header title="숙명여자대학교" fallbackRoute="/" />;
+  redirect("/mypage");
 }
