@@ -19,15 +19,14 @@ const floatingButtonVariants = cva(
     "rounded-full",
     "flex w-fit gap-2",
     "typo-button text-center justify-center items-center",
-    "active:bg-state-active",
     "[&_svg]:w-6 [&_svg]:h-6",
     "shadow-[0px_4px_12px_0px_var(--color-shadow)]",
   ],
   {
     variants: {
       variant: {
-        primary: ["bg-primary-point", "text-white", "py-3", "px-6"],
-        primaryIcon: ["bg-primary-point", "text-white", "p-3"],
+        primary: ["bg-primary-point", "text-white", "py-3", "px-6", "hover:bg-state-hover", "active:bg-state-active"],
+        primaryIcon: ["bg-primary-point", "text-white", "p-3", "hover:bg-state-hover", "active:bg-state-active"],
         /** 추후 다른 디자인 시스템이 추가된다면 이곳을 변경 */
       },
       disabled: {
