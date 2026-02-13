@@ -15,7 +15,7 @@ const ActivityCard = ({ type, restaurantName, content, date }: ActivityCardProps
     <article className="rounded-2xl bg-bg-white px-5 py-4" aria-label={`${restaurantName} ${type}`}>
       <p className="typo-caption text-gray-400">{type}</p>
       <h3 className="typo-h2-sub mt-1 text-primary-text">{restaurantName}</h3>
-      <p className="typo-body2 mt-3 text-gray-600 truncate">"{content}"</p>
+      <p className="typo-body2 mt-3 text-gray-600 truncate">{'"'}{content}{'"'}</p>
       <time className="typo-caption mt-3 block text-gray-400" dateTime={date.replaceAll(".", "-")}>
         {date}
       </time>
