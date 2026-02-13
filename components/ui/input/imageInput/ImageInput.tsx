@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type InputHTMLAttributes, useState } from "react";
+import { type InputHTMLAttributes, useEffect, useRef, useState } from "react";
 import CameraIcon from "@/assets/icons/camera.svg";
 
 interface ImageInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -14,21 +14,34 @@ interface ImageInputProps extends InputHTMLAttributes<HTMLInputElement> {
 const ImageInput = ({ defaultImage, onImageChange, ...restProps }: ImageInputProps) => {
   const FALLBACK_IMAGE = "/fallback.png";
   const [previewImage, setPreviewImage] = useState(defaultImage ? defaultImage : FALLBACK_IMAGE);
+  const selectedImageUrlRef = useRef<string | null>(null);
+
   const handlePreviewImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
     const previewUrl = URL.createObjectURL(file);
-    setPreviewImage((prev) => {
-      if (prev !== FALLBACK_IMAGE) URL.revokeObjectURL(prev);
-      return previewUrl;
-    });
+
+    if (selectedImageUrlRef.current) {
+      URL.revokeObjectURL(selectedImageUrlRef.current);
+    }
+
+    selectedImageUrlRef.current = previewUrl;
+    setPreviewImage(previewUrl);
     onImageChange(file);
   };
 
   const handleErrorImage = () => {
     setPreviewImage(FALLBACK_IMAGE);
   };
+
+  useEffect(() => {
+    return () => {
+      if (selectedImageUrlRef.current) {
+        URL.revokeObjectURL(selectedImageUrlRef.current);
+      }
+    };
+  }, []);
 
   return (
     <label htmlFor={restProps.id} className="relative inline-block size-[100px] cursor-pointer">
@@ -37,7 +50,7 @@ const ImageInput = ({ defaultImage, onImageChange, ...restProps }: ImageInputPro
       </div>
 
       <div className="absolute right-0 bottom-0 flex size-8 items-center justify-center rounded-full bg-bg-white text-gray-200 p-1">
-        <input {...restProps} type="file" accept="image/*" id={restProps.id} className="hidden" onChange={handlePreviewImage} />
+        <input {...restProps} type="file" accept="image/*" className="hidden" onChange={handlePreviewImage} />
         <CameraIcon />
       </div>
     </label>
