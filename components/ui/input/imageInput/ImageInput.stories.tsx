@@ -21,6 +21,6 @@ export const WithImage: Story = {
 
 export const WithErrorImage: Story = {
   args: {
-    defaultImage: "/",
+    defaultImage: "/존재하지않음",
   },
 };
