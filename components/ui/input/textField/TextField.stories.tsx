@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import Input from "./Input";
+import TextField from "./TextField";
 
-const meta: Meta<typeof Input> = {
-  title: "UI/Input/Input",
-  component: Input,
+const meta: Meta<typeof TextField> = {
+  title: "UI/Input/TextField",
+  component: TextField,
 };
 
 export default meta;
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof TextField>;
 
 export const Default: Story = {
   args: {
