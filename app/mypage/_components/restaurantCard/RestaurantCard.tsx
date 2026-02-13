@@ -16,7 +16,7 @@ const RestaurantCard = ({ name, imageUrl, href }: RestaurantCardProps) => {
       <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl">
         <Image src={imageUrl} alt={`${name} 사진`} fill className="object-cover" sizes="(max-width: 375px) 100vw, 375px" />
       </div>
-      <h3 className="typo-body1 mt-3 text-primary-text">{name}</h3>
+      <h3 className="typo-body1 mt-3 truncate text-primary-text">{name}</h3>
     </Link>
   );
 };
