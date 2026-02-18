@@ -5,11 +5,6 @@ import NavigationLink from "./NavigationLink";
 const meta: Meta<typeof NavigationLink> = {
   title: "Mypage/NavigationLink",
   component: NavigationLink,
-  parameters: {
-    nextjs: {
-      appDirectory: true,
-    },
-  },
   decorators: [
     (Story) => (
       <div className="bg-bg-oatmeal p-4">
