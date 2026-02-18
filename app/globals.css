@@ -75,6 +75,7 @@
 
   /*layout */
   --container-layout: 375px;
+  --layout-padding-x: 16px;
 }
 
 @utility typo-display1 {
