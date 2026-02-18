@@ -39,8 +39,6 @@ const useSwiperAction = ({ length, sidePeekRatio }: UseSwiperActionProps) => {
     const gap = (containerWidthRef.current - (elementWidthRef.current + slice * 2)) / 2;
     const start = gap + slice;
 
-    setStyleGap(gap);
-
     const move = elementWidthRef.current + gap;
 
     return Math.floor(start - move * index);
@@ -147,6 +145,10 @@ const useSwiperAction = ({ length, sidePeekRatio }: UseSwiperActionProps) => {
       const sw = sidePeekRatio ? contentWidth / (1 + 2 * sidePeekRatio) : contentWidth;
       elementWidthRef.current = sw;
       setSlideWidth(sw);
+
+      const slice = sidePeekRatio ? elementWidthRef.current * sidePeekRatio : 0;
+      const gap = (containerWidthRef.current - (elementWidthRef.current + slice * 2)) / 2;
+      setStyleGap(gap);
 
       threshold.current = Math.floor((containerWidthRef.current - 2 * padding) / STANDARD);
       x.set(calculateLocation(0));
