@@ -30,28 +30,6 @@ const useSwiperAction = ({ length, sidePeekRatio }: UseSwiperActionProps) => {
   const MIN_THRESHOLD = 5;
   const STANDARD = 5;
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: 첫 마운트시에만 계산
-  useEffect(() => {
-    const updateLayout = () => {
-      const root = getComputedStyle(document.documentElement);
-      const padding = Number(root.getPropertyValue("--layout-padding-x").replace("px", ""));
-
-      containerWidthRef.current = containerRef.current?.clientWidth ?? 0;
-
-      const contentWidth = containerWidthRef.current - 2 * padding;
-      const sw = sidePeekRatio ? contentWidth / (1 + 2 * sidePeekRatio) : contentWidth;
-      elementWidthRef.current = sw;
-      setSlideWidth(sw);
-
-      threshold.current = Math.floor((containerWidthRef.current - 2 * padding) / STANDARD);
-      x.set(calculateLocation(0));
-    };
-    updateLayout();
-
-    window.addEventListener("resize", updateLayout);
-    return () => window.removeEventListener("resize", updateLayout);
-  }, []);
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [styleGap, setStyleGap] = useState(0);
   const [slideWidth, setSlideWidth] = useState<number | null>(null);
@@ -156,6 +134,28 @@ const useSwiperAction = ({ length, sidePeekRatio }: UseSwiperActionProps) => {
     isDragging.current = false;
     animate(x, calculateLocation(currentIndex), springPreset);
   };
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: 첫 마운트시에만 계산
+  useEffect(() => {
+    const updateLayout = () => {
+      const root = getComputedStyle(document.documentElement);
+      const padding = Number(root.getPropertyValue("--layout-padding-x").replace("px", ""));
+
+      containerWidthRef.current = containerRef.current?.clientWidth ?? 0;
+
+      const contentWidth = containerWidthRef.current - 2 * padding;
+      const sw = sidePeekRatio ? contentWidth / (1 + 2 * sidePeekRatio) : contentWidth;
+      elementWidthRef.current = sw;
+      setSlideWidth(sw);
+
+      threshold.current = Math.floor((containerWidthRef.current - 2 * padding) / STANDARD);
+      x.set(calculateLocation(0));
+    };
+    updateLayout();
+
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
+  }, []);
 
   return {
     containerRef,
