@@ -13,7 +13,6 @@ export const ROUTE = {
 
 export const createFolderRoute = (folderId: string) => `/folder/${folderId}`;
 
-// TODO: folder id를 포함하도록 변경
 export const createRestaurantInfoRoute = (id: string) => `/restaurant/${id}/info`;
 export const createRestaurantWikiRoute = (id: string) => `/restaurant/${id}/wiki`;
 export const createRestaurantPhotoRoute = (id: string) => `/restaurant/${id}/photo`;

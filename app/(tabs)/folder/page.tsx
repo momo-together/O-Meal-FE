@@ -3,7 +3,7 @@ import Header from "@/components/layout/header/Header";
 import FloatingButton from "@/components/ui/button/floatingButton/FloatingButton";
 import { ROUTE } from "@/constants/routes";
 import FolderCard from "./_components/folderCard/FolderCard";
-import SearchSection from "./SearchSection";
+import SearchSection from "./_components/serachSection/SearchSection";
 
 // TODO: 서버 데이터 연결
 const HASHTAGS = ["가성비", "혼밥", "영업중", "분위기 맛집", "혼술", "데이트", "배달", "회식", "점심특선", "신규"];
