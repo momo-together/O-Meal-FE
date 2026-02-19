@@ -28,9 +28,9 @@ const HomePage = () => {
           <AnimateSection />
         </div>
       </section>
-      <Button variant="tertiary">
-        <Link href={ROUTE.FOLDER.INDEX}>숙명여자대학교 입장</Link>
-      </Button>
+      <Link href={ROUTE.FOLDER.INDEX} className="text-gray-400 text-center w-full">
+        숙명여자대학교 입장
+      </Link>
     </div>
   );
 };
