@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import Folder from "./Folder";
 
 const meta: Meta<typeof Folder> = {
-  title: "restaurant/Folder/Folder",
+  title: "Restaurant/Folder/Folder",
   component: Folder,
   decorators: [
     (Story) => (
