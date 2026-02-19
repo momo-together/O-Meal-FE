@@ -7,11 +7,11 @@ export const ROUTE = {
     FAVORITES: "/mypage/favorites",
   },
   FOLDER: {
-    INDEX: "/folder",
+    INDEX: "/folders",
   },
 } as const;
 
-export const createFolderRoute = (folderId: string) => `/folder/${folderId}`;
+export const createFolderRoute = (folderId: string) => `/folders/${folderId}`;
 
 export const createRestaurantInfoRoute = (id: string) => `/restaurant/${id}/info`;
 export const createRestaurantWikiRoute = (id: string) => `/restaurant/${id}/wiki`;
