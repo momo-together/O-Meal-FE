@@ -16,8 +16,10 @@ const LikeButton = ({ likeCount }: LikeButtonProps) => {
   const displayedLikeCount = isLiked ? likeCount + 1 : likeCount;
 
   return (
-    <button type="button" className="flex items-center gap-1" aria-label={`좋아요 ${displayedLikeCount}회`} aria-live="polite" onClick={toggleLike}>
-      <span className="typo-caption text-gray-400">{displayedLikeCount}회</span>
+    <button type="button" className="flex items-center gap-1" aria-label={`좋아요 ${displayedLikeCount}회`} aria-pressed={isLiked} onClick={toggleLike}>
+      <span className="typo-caption text-gray-400" aria-live="polite">
+        {displayedLikeCount}회
+      </span>
       <BounceScale
         isActive={isLiked}
         className={clsx("flex justify-center items-center w-4 h-4", isLiked ? "text-status-error [&_path]:fill-status-error" : "text-gray-400")}
