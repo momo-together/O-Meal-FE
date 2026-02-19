@@ -2,7 +2,7 @@ import AddIcon from "@/assets/icons/add.svg";
 import Header from "@/components/layout/header/Header";
 import FloatingButton from "@/components/ui/button/floatingButton/FloatingButton";
 import { ROUTE } from "@/constants/routes";
-import Folder from "./_components/folder/Folder";
+import FolderCard from "./_components/folderCard/FolderCard";
 import SearchSection from "./SearchSection";
 
 // TODO: 서버 데이터 연결
@@ -43,7 +43,7 @@ const RestaurantsPage = () => {
           <h2 className="typo-h1-title text-primary-text mb-5">테마별 맛집 폴더</h2>
           <div className="flex flex-col gap-4">
             {FOLDERS.map((folder) => (
-              <Folder key={folder.title} {...folder} />
+              <FolderCard key={folder.title} {...folder} />
             ))}
           </div>
         </section>

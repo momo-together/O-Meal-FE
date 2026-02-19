@@ -1,6 +1,6 @@
 import ScrapButton from "./ScrapButton";
 
-interface FolderProps {
+interface FolderCardProps {
   /** 폴더 이모지 */
   emoji: string;
   /** 폴더 제목 */
@@ -13,7 +13,7 @@ interface FolderProps {
   viewCount: number;
 }
 
-const Folder = ({ emoji, title, description, savedCount, viewCount }: FolderProps) => {
+const FolderCard = ({ emoji, title, description, savedCount, viewCount }: FolderCardProps) => {
   return (
     <article className="bg-bg-white rounded-2xl p-4 flex flex-col gap-3">
       <div className="flex flex-col gap-1">
@@ -30,4 +30,4 @@ const Folder = ({ emoji, title, description, savedCount, viewCount }: FolderProp
   );
 };
 
-export default Folder;
+export default FolderCard;
