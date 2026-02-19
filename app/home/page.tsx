@@ -1,4 +1,7 @@
+import Link from "next/link";
 import Logo from "@/assets/logos/logo.svg";
+import Button from "@/components/ui/button/button/Button";
+import { ROUTE } from "@/constants/routes";
 import AnimateSection from "./AnimateSection";
 import SearchSection from "./SearchSection";
 
@@ -25,6 +28,9 @@ const HomePage = () => {
           <AnimateSection />
         </div>
       </section>
+      <Button variant="tertiary">
+        <Link href={ROUTE.FOLDER.INDEX}>숙명여자대학교 입장</Link>
+      </Button>
     </div>
   );
 };
