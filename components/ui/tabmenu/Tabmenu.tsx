@@ -1,5 +1,8 @@
+"use client";
+
 import clsx from "clsx";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import HomeIcon from "@/assets/icons/home.svg";
 import UserIcon from "@/assets/icons/user.svg";
 import { ROUTE } from "@/constants/routes";
@@ -18,11 +21,10 @@ const tabInfo: TabInfoType[] = [
   { name: "my", label: "MY", icon: <UserIcon />, url: ROUTE.MYPAGE.INDEX },
 ];
 
-interface TabmenuProps {
-  selectedTab: TabmenuType;
-}
+const Tabmenu = () => {
+  const pathname = usePathname();
+  const selectedTab: TabmenuType = pathname.startsWith(ROUTE.MYPAGE.INDEX) ? "my" : "home";
 
-const Tabmenu = ({ selectedTab }: TabmenuProps) => {
   return (
     <div role="tablist" className="flex w-full bg-bg-white justify-center gap-24 py-3">
       {tabInfo.map((info) => (
