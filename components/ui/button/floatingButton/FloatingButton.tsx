@@ -1,7 +1,7 @@
 "use client";
 
-import type { ButtonHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
+import type { ButtonHTMLAttributes } from "react";
 
 type FloatingButtonVariantsType = "primary" | "primaryIcon";
 
@@ -43,19 +43,12 @@ const floatingButtonVariants = cva(
       variant: "primary",
       disabled: false,
     },
-  }
+  },
 );
 
-const FloatingButton = ({
-  onClick,
-  children,
-  isDisabled,
-  variant,
-  location,
-  ...restProps
-}: ButtonProps) => {
+const FloatingButton = ({ onClick, children, isDisabled, variant, location, ...restProps }: ButtonProps) => {
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-layout">
+    <div className="fixed bottom-[calc(var(--tabmenu-height)+1.5rem)] left-1/2 -translate-x-1/2 w-full max-w-layout z-(--z-floating)">
       <button
         {...restProps}
         onClick={onClick}
