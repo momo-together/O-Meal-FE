@@ -6,7 +6,6 @@ const meta: Meta<typeof Header> = {
   component: Header,
   parameters: {
     nextjs: {
-      appDirectory: true,
       navigation: {
         pathname: "/",
         query: {},
@@ -24,7 +23,6 @@ export const Default: Story = {
   },
   parameters: {
     nextjs: {
-      appDirectory: true,
       navigation: {
         pathname: "/",
         query: {},
