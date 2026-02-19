@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import RestaurantTabMenu from "./RestaurantTabMenu";
 
 const meta: Meta<typeof RestaurantTabMenu> = {
-  title: "Restaurant/RestaurantTabMenu",
+  title: "Restaurant/RestaurantTabMenu/RestaurantTabMenu",
   component: RestaurantTabMenu,
   decorators: [
     (Story) => (
