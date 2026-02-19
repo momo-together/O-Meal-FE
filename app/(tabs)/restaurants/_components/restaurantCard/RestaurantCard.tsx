@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import { LAYOUT_MAX_WIDTH } from "@/constants/layout";
 import LikeButton from "./LikeButton";
 
 interface RestaurantCardProps {
@@ -24,7 +25,7 @@ const RestaurantCard = ({ name, imageUrl, distance, hashtags, location, likeCoun
     <article className="bg-bg-white rounded-2xl overflow-hidden flex flex-col">
       {/* 이미지 영역 */}
       <div className="relative w-full aspect-343/160 bg-gray-100">
-        {imageUrl && <Image src={imageUrl} alt={`${name} 대표 이미지`} fill className="object-cover" />}
+        {imageUrl && <Image src={imageUrl} alt={`${name} 대표 이미지`} fill sizes={`${LAYOUT_MAX_WIDTH}`} className="object-cover" />}
         <span
           className={clsx(
             "absolute bottom-3 left-3 typo-caption px-3 py-1 rounded-lg",
@@ -46,9 +47,9 @@ const RestaurantCard = ({ name, imageUrl, distance, hashtags, location, likeCoun
         {/* 해시태그 */}
         <div className="flex-1 flex flex-wrap gap-1">
           {hashtags.map((hashtag) => (
-            <p key={hashtag} className="typo-body2 text-gray-400 whitespace-nowrap">
+            <span key={hashtag} className="typo-body2 text-gray-400 whitespace-nowrap">
               #{hashtag}
-            </p>
+            </span>
           ))}
         </div>
 
