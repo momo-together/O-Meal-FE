@@ -1,4 +1,5 @@
 interface HashtagViewProps {
+  /**해시태그 텍스트 */
   text: string;
 }
 
