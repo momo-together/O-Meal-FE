@@ -11,11 +11,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: ButtonVariantsType;
 }
 
-const buttonVariants = cva(["py-3", "w-full", "typo-body2"], {
+const buttonVariants = cva(["w-full", "typo-body2"], {
   variants: {
     variant: {
-      primary: ["bg-primary-point", "text-bg-white", "rounded-xl"],
-      tertiary: ["py-0", "typo-button-sm", "text-center", "text-gray-400"],
+      primary: ["py-3", "bg-primary-point", "text-bg-white", "rounded-xl"],
+      tertiary: ["p-0", "typo-button-sm", "text-center", "text-gray-400"],
     },
   },
   defaultVariants: {

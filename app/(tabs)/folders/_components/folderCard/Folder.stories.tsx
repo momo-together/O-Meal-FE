@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import Folder from "./Folder";
+import FolderCard from "./FolderCard";
 
-const meta: Meta<typeof Folder> = {
+const meta: Meta<typeof FolderCard> = {
   title: "Restaurant/Folder/Folder",
-  component: Folder,
+  component: FolderCard,
   decorators: [
     (Story) => (
       <div className="bg-bg-oatmeal p-4">
@@ -14,7 +14,7 @@ const meta: Meta<typeof Folder> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Folder>;
+type Story = StoryObj<typeof FolderCard>;
 
 export const Default: Story = {
   args: {

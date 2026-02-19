@@ -76,7 +76,12 @@
   /*layout */
   --container-layout: 375px;
   --layout-padding-x: 16px;
+  --tabmenu-height: 60px;
 
+  /* z-index */
+  --z-floating: 50;
+  --z-tabmenu: 40;
+  --z-header: 30;
 }
 
 @utility typo-display1 {
@@ -150,6 +155,14 @@
   -ms-user-select: none; /* IE/Edge */
 }
 
+/* 스크롤바 숨기기 */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 html {
   background: var(--color-bg-oatmeal);
 }
@@ -158,6 +171,7 @@ body {
   color: var(--color-primary-text);
   font-family: var(--font-pretendard);
   max-width: var(--container-layout);
+  padding: 0 var(--layout-padding-x);
   margin: 0 auto;
 }
 
