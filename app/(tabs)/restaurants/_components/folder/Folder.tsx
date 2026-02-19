@@ -1,5 +1,4 @@
-import ScrapIcon from "@/assets/icons/scrap.svg";
-import Button from "@/components/ui/button/button/Button";
+import ScrapButton from "./ScrapButton";
 
 interface FolderProps {
   /** 폴더 이모지 */
@@ -25,14 +24,7 @@ const Folder = ({ emoji, title, description, savedCount, viewCount }: FolderProp
       </div>
       <div className="flex items-center justify-between">
         <span className="typo-caption text-gray-400">{savedCount}곳 저장됨</span>
-        <div className="inline-flex items-center gap-1">
-          <span className="typo-caption text-gray-400 whitespace-nowrap">{viewCount}회</span>
-          <Button variant="tertiary" aria-label="스크랩">
-            <div className="flex justify-center items-center w-4 h-4">
-              <ScrapIcon />
-            </div>
-          </Button>
-        </div>
+        <ScrapButton viewCount={viewCount} />
       </div>
     </article>
   );
