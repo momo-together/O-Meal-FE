@@ -6,7 +6,7 @@ import FolderCard from "./_components/folderCard/FolderCard";
 import SearchSection from "./SearchSection";
 
 // TODO: 서버 데이터 연결
-const HASHTAGS = ["가성비", "혼밥", "영업중", "분위기 맛집", "혼술", "데이트", "배달", "회식", "점심특선", "신규"];
+const HASHTAGS = ["가성비", "혼밥", "분위기 맛집", "혼술", "밥약"];
 
 // TODO: 서버 데이터 연결
 const FOLDERS = [
