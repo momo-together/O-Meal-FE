@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import ScrapIcon from "@/assets/icons/scrap.svg";
+import BounceScale from "@/components/animation/BounceScale";
 import Button from "@/components/ui/button/button/Button";
 
 interface ScrapButtonProps {
@@ -21,9 +22,12 @@ const ScrapButton = ({ viewCount }: ScrapButtonProps) => {
     <div className="inline-flex items-center gap-1">
       <span className="typo-caption text-gray-400 whitespace-nowrap">{displayedCount}회</span>
       <Button variant="tertiary" aria-label="스크랩" onClick={changeCount}>
-        <div className={clsx("flex justify-center items-center w-4 h-4", isScrapped ? "text-primary-point [&_path]:fill-primary-point" : "text-gray-400")}>
+        <BounceScale
+          isActive={isScrapped}
+          className={clsx("flex justify-center items-center w-4 h-4", isScrapped ? "text-status-review [&_path]:fill-status-review" : "text-gray-400")}
+        >
           <ScrapIcon />
-        </div>
+        </BounceScale>
       </Button>
     </div>
   );
