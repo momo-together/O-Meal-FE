@@ -4,6 +4,8 @@ import { useState } from "react";
 import HashtagButton from "@/components/specific/hashtag/hashtagButton/HashtagButton";
 import SearchBar from "@/components/ui/searchBar/SearchBar";
 
+/** 인터렉션을 위해 분리한 컴포넌트이기에, 스토리북 테스트를 진행하지 않음 */
+
 interface SearchSectionProps {
   /** 필터 해시태그 목록 (최대 10개) */
   hashtags: string[];
