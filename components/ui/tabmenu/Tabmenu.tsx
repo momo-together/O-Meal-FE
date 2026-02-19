@@ -26,7 +26,7 @@ const Tabmenu = () => {
   const selectedTab: TabmenuType = pathname.startsWith(ROUTE.MYPAGE.INDEX) ? "my" : "home";
 
   return (
-    <div role="tablist" className="flex w-full bg-bg-white justify-center gap-24 py-3">
+    <div role="tablist" className="flex w-layout bg-bg-white justify-center gap-24 py-3">
       {tabInfo.map((info) => (
         <Link
           href={info.url}
