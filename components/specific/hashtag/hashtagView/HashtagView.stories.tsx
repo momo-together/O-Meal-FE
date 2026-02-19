@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import HashtagView from "./HashtagView";
 
 const meta: Meta<typeof HashtagView> = {
-  title: "Specific/HashtagView/HashtagView",
+  title: "Specific/Hashtag/HashtagView/HashtagView",
   component: HashtagView,
 };
 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import HashtagButton from "./HashtagButton";
 
 const meta: Meta<typeof HashtagButton> = {
-  title: "Specific/HashtagButton/HashtagButton",
+  title: "Specific/Hashtag/HashtagButton/HashtagButton",
   component: HashtagButton,
 };
 
