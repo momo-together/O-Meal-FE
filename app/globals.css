@@ -76,6 +76,12 @@
   /*layout */
   --container-layout: 375px;
   --layout-padding-x: 16px;
+  --tabmenu-height: 60px;
+
+  /* z-index */
+  --z-floating: 50;
+  --z-tabmenu: 40;
+  --z-header: 30;
 
 }
 
@@ -148,6 +154,14 @@
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE/Edge */
+}
+
+/* 스크롤바 숨기기 */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 html {
