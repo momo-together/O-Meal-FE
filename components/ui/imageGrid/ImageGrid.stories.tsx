@@ -16,18 +16,9 @@ const sampleImages = [
   { src: "https://picsum.photos/seed/4/200/200", alt: "음식 이미지 4" },
   { src: "https://picsum.photos/seed/5/200/200", alt: "음식 이미지 5" },
   { src: "https://picsum.photos/seed/6/200/200", alt: "음식 이미지 6" },
-  { src: "https://picsum.photos/seed/1/200/200", alt: "음식 이미지 1" },
-  { src: "https://picsum.photos/seed/2/200/200", alt: "음식 이미지 2" },
-  { src: "https://picsum.photos/seed/3/200/200", alt: "음식 이미지 3" },
-  { src: "https://picsum.photos/seed/4/200/200", alt: "음식 이미지 4" },
-  { src: "https://picsum.photos/seed/5/200/200", alt: "음식 이미지 5" },
-  { src: "https://picsum.photos/seed/6/200/200", alt: "음식 이미지 6" },
-  { src: "https://picsum.photos/seed/1/200/200", alt: "음식 이미지 1" },
-  { src: "https://picsum.photos/seed/2/200/200", alt: "음식 이미지 2" },
-  { src: "https://picsum.photos/seed/3/200/200", alt: "음식 이미지 3" },
-  { src: "https://picsum.photos/seed/4/200/200", alt: "음식 이미지 4" },
-  { src: "https://picsum.photos/seed/5/200/200", alt: "음식 이미지 5" },
-  { src: "https://picsum.photos/seed/6/200/200", alt: "음식 이미지 6" },
+  { src: "https://picsum.photos/seed/7/200/200", alt: "음식 이미지 1" },
+  { src: "https://picsum.photos/seed/8/200/200", alt: "음식 이미지 2" },
+  { src: "https://picsum.photos/seed/9/200/200", alt: "음식 이미지 3" },
 ];
 
 export const Default: Story = {
