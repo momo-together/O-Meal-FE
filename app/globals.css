@@ -82,7 +82,6 @@
   --z-floating: 50;
   --z-tabmenu: 40;
   --z-header: 30;
-
 }
 
 @utility typo-display1 {
@@ -172,6 +171,7 @@ body {
   color: var(--color-primary-text);
   font-family: var(--font-pretendard);
   max-width: var(--container-layout);
+  padding: 0 var(--layout-padding-x);
   margin: 0 auto;
 }
 
