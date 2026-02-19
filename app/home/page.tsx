@@ -20,7 +20,7 @@ const HomePage = () => {
       </div>
 
       <section aria-label="지금 핫한 폴더" className="flex flex-col gap-2">
-        <p className="typo-h2-sub text-gray-900 mb-3 text-center">🔥 지금 핫한 폴더</p>
+        <h2 className="typo-h2-sub text-gray-900 mb-3 text-left">🔥 지금 핫한 폴더</h2>
         <div className="overflow-hidden">
           <AnimateSection />
         </div>
