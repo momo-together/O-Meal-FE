@@ -29,7 +29,7 @@ const SearchSection = ({ hashtags }: SearchSectionProps) => {
     <div className="flex flex-col gap-4">
       <SearchBar value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="검색어를 입력하세요." />
       <ul
-        className="flex gap-2 overflow-hidden px-1"
+        className="flex gap-2 overflow-hidden px-1 py-4 -my-4 touch-pan-y"
         aria-label="필터 해시태그"
         ref={listRef}
         onPointerDown={handlePointerDown}
