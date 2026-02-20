@@ -170,9 +170,12 @@ html {
 body {
   color: var(--color-primary-text);
   font-family: var(--font-pretendard);
-  max-width: var(--container-layout);
   padding: 0 var(--layout-padding-x);
   margin: 0 auto;
+
+  @media (min-width: 430px) {
+    max-width: var(--container-layout);
+  }
 }
 
 button {
