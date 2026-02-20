@@ -17,7 +17,7 @@ const FolderCard = ({ emoji, title, description, savedCount, viewCount }: Folder
   return (
     <article className="bg-bg-white rounded-2xl p-4 flex flex-col gap-3">
       <div className="flex flex-col gap-1">
-        <h2 className="typo-h2-sub text-primary-text">
+        <h2 className="typo-body1 text-primary-text">
           {emoji} {title}
         </h2>
         <p className="typo-body2 text-gray-600 line-clamp-2">{description}</p>
