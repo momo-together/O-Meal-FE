@@ -154,7 +154,7 @@ useEffect(() => {
 
 #### 7. 기본 Export
 
-- 컴포넌트는 기본 export 사용 (`export default Component`)
+- 컴포넌트와 훅은 기본 export 사용 (`export default Component`)
 - 유틸리티 함수나 타입은 named export 사용 가능
 
 #### 8. SVG 아이콘 Import

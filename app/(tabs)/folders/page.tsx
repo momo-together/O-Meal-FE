@@ -43,7 +43,7 @@ const RestaurantsPage = () => {
       <div className="flex flex-col gap-10 pb-40">
         <SearchSection hashtags={HASHTAGS} />
         <section aria-label="테마별 맛집 폴더">
-          <h2 className="typo-h1-title text-primary-text mb-5">테마별 맛집 폴더</h2>
+          <h2 className="typo-h2-sub text-primary-text mb-5">테마별 맛집 폴더</h2>
           <div className="flex flex-col gap-4">
             {FOLDERS.map((folder) => (
               <FolderCard key={folder.id} {...folder} />

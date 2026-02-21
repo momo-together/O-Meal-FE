@@ -21,7 +21,7 @@ const Header = ({ title, fallbackRoute }: HeaderProps) => {
   };
 
   return (
-    <header className="relative flex py-4 w-full items-center bg-bg-oatmeal">
+    <header className="relative flex py-4 w-full items-center bg-bg-oatmeal mb-1">
       <button type="button" aria-label="뒤로 가기" className="absolute left-4 flex items-center justify-center p-1" onClick={handleBack}>
         <ArrowLeft aria-hidden="true" className="h-4 w-4 text-gray-900" />
       </button>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import HashtagButton from "@/components/specific/hashtag/hashtagButton/HashtagButton";
 import SearchBar from "@/components/ui/searchBar/SearchBar";
+import useSlide from "@/hooks/useSlide";
 
 interface SearchSectionProps {
   /** 필터 해시태그 목록 (최대 10개) */
@@ -22,12 +23,22 @@ const SearchSection = ({ hashtags }: SearchSectionProps) => {
 
   const displayedHashtags = hashtags.slice(0, 10);
 
+  const { listRef, handlePointerDown, handlePointerLeave, handlePointerMove, handlePointerUp } = useSlide<HTMLUListElement>();
+
   return (
     <div className="flex flex-col gap-4">
       <SearchBar value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="검색어를 입력하세요." />
-      <ul className="flex flex-wrap gap-2 overflow-hidden" aria-label="필터 해시태그">
+      <ul
+        className="flex gap-2 overflow-hidden px-1 py-4 -my-4 touch-pan-y"
+        aria-label="필터 해시태그"
+        ref={listRef}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerLeave}
+      >
         {displayedHashtags.map((tag) => (
-          <li key={tag}>
+          <li key={tag} className="shrink-0">
             <HashtagButton text={tag} isSelected={selectedHashtags[tag]} onClick={() => toggleSelectedHashtags(tag)} />
           </li>
         ))}
