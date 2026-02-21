@@ -16,6 +16,7 @@ const HashtagButton = ({ isSelected, text, ...restProps }: HashtagButtonProps) =
         "bg-bg-white inline-flex py-1.5 px-4 justify-center items-center rounded-full select-none",
         isSelected ? "border border-primary-point" : "border border-gray-300",
       )}
+      aria-pressed={isSelected}
       {...restProps}
     >
       <span className={clsx("typo-body2", isSelected ? "text-primary-point" : "text-gray-500")}>{text}</span>
