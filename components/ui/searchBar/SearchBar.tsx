@@ -11,8 +11,8 @@ interface SearchBarProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "on
 const SearchBar = ({ ...restProps }: SearchBarProps) => {
   return (
     <div className="inline-flex justify-center items-center gap-4 text-gray-400 bg-bg-white w-full py-3 px-7 rounded-full focus-within:ring-2 focus-within:ring-primary-base">
-      <div className="w-5 h-5 aspect-square flex justify-center items-center" aria-hidden="true">
-        <SearchIcon />
+      <div aria-hidden="true">
+        <SearchIcon className="w-5 h-5" />
       </div>
       <input type="search" aria-label="검색" className="flex-1 text-gray-900 focus-visible:outline-none text-body2" {...restProps} />
     </div>
