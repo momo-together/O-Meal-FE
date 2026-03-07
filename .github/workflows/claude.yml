@@ -6,7 +6,10 @@ on:
 
 jobs:
   claude:
-    if: contains(github.event.label.name, 'claude')
+    if: |
+      contains(github.event.label.name, 'claude') &&
+      (github.event.issue.author_association == 'MEMBER' ||
+       github.event.issue.author_association == 'OWNER')
     runs-on: ubuntu-latest
     permissions:
       contents: write
