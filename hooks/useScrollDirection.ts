@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface UseScrollDirectionOptions {
   /** 스크롤 방향 감지를 위한 최소 이동 거리 (px). 미세한 스크롤을 무시한다. @default 5 */
@@ -19,15 +19,18 @@ interface UseScrollDirectionResult {
  * - 최상단(scrollY === 0)일 경우 항상 isVisible: true
  * @param options - threshold: 스크롤 방향 감지 최소 이동 거리 (기본값: 5px)
  */
-const useScrollDirection = ({ threshold = 5 }: UseScrollDirectionOptions = {}): UseScrollDirectionResult => {
+const useScrollDirection = ({
+  threshold = 5,
+}: UseScrollDirectionOptions = {}): UseScrollDirectionResult => {
   const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    lastScrollY.current = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const diff = currentScrollY - lastScrollY;
+      const diff = currentScrollY - lastScrollY.current;
 
       if (currentScrollY <= 0) {
         setIsVisible(true);
@@ -35,7 +38,7 @@ const useScrollDirection = ({ threshold = 5 }: UseScrollDirectionOptions = {}): 
         setIsVisible(diff < 0);
       }
 
-      lastScrollY = currentScrollY;
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
