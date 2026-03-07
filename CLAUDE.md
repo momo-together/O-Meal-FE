@@ -26,18 +26,44 @@
 
 - **pnpm** (workspace 지원)
 
+## 작업 유형별 가이드
+
+모든 작업은 `.claude/guides/init.md`를 가장 먼저 읽는 것으로 시작한다.
+
+| 순서 | 시점                  | 가이드 문서                      |
+| ---- | --------------------- | -------------------------------- |
+| 1    | 작업 시작 전          | `.claude/guides/init.md`         |
+| 2    | 작업 중 - UI/컴포넌트 | `.claude/guides/ui-component.md` |
+| 2    | 작업 중 - 기능 구현   | `.claude/guides/feature.md`      |
+| 3    | 커밋 시               | `.claude/guides/commit.md`       |
+| 4    | PR 작성 시            | `.claude/guides/pr.md`           |
+
+## 코드 퀄리티 기준
+
+모든 작업에서 아래 문서를 코드 품질 기준으로 참고한다.
+
+- `.claude/skills/vercel-react-best-practices`
+
+### JSDoc
+
+외부에서 사용되는 인터페이스, 커스텀 훅, 유틸리티 함수 등 명세가 있는 모든 곳에 JSDoc을 작성한다.
+
+```typescript
+
 ## 프로젝트 구조
 
 ```
-app/                    # Next.js App Router
-  layout.tsx            # Root layout (Pretendard, SUIT 폰트 CDN)
-  globals.css           # 디자인 토큰 + 타이포그래피 유틸리티
+
+app/ # Next.js App Router
+layout.tsx # Root layout (Pretendard, SUIT 폰트 CDN)
+globals.css # 디자인 토큰 + 타이포그래피 유틸리티
 
 assets/
-  icons/                # SVG 아이콘 (add, like, home, user)
+icons/ # SVG 아이콘 (add, like, home, user)
 
-components/             # 공통 컴포넌트
-```
+components/ # 공통 컴포넌트
+
+````
 
 ## 디자인 토큰 (globals.css)
 
@@ -89,7 +115,7 @@ const Component = ({ propName, optionalProp = false }: ComponentProps) => {
 };
 
 export default Component;
-```
+````
 
 #### 3. 스타일링
 
@@ -110,11 +136,10 @@ export default Component;
 
 **프로젝트에서 활용 중인 v4 문법**:
 
-| 문법 | 용도 | 프로젝트 사용 예시 |
-|------|------|---------------------|
-| `@theme inline` | CSS 변수 기반 디자인 토큰 정의 → Tailwind 유틸리티로 자동 매핑 | `globals.css`의 색상, 타이포그래피, 레이아웃 토큰 |
-| `@utility` | 커스텀 유틸리티 클래스 정의 (여러 CSS 속성을 하나의 클래스로 묶음) | `typo-display1`, `typo-body1` 등 타이포그래피 유틸리티 |
-
+| 문법            | 용도                                                               | 프로젝트 사용 예시                                     |
+| --------------- | ------------------------------------------------------------------ | ------------------------------------------------------ |
+| `@theme inline` | CSS 변수 기반 디자인 토큰 정의 → Tailwind 유틸리티로 자동 매핑     | `globals.css`의 색상, 타이포그래피, 레이아웃 토큰      |
+| `@utility`      | 커스텀 유틸리티 클래스 정의 (여러 CSS 속성을 하나의 클래스로 묶음) | `typo-display1`, `typo-body1` 등 타이포그래피 유틸리티 |
 
 #### 4. Props 인터페이스
 
