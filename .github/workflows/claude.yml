@@ -8,8 +8,7 @@ jobs:
   claude:
     if: |
       contains(github.event.label.name, 'claude') &&
-      (github.event.issue.author_association == 'MEMBER' ||
-       github.event.issue.author_association == 'OWNER')
+      github.event.sender.login == 'hanheel'
     runs-on: ubuntu-latest
     permissions:
       contents: write
