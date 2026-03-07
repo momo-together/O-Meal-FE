@@ -130,7 +130,7 @@ const Button = ({ variant, ...rest }: ButtonProps) => {
 };
 ```
 
---
+---
 
 ## PR 작성 시 포함할 내용
 
