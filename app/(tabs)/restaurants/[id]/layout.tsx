@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header/Header";
 import RestaurantInfoSection from "./_components/restaurantInfo/RestaurantInfoSection";
 import RestaurantTabMenu from "./_components/restaurantTabMenu/RestaurantTabMenu";
+import { ROUTE } from "@/constants/routes";
 
 // TODO: API 연동 시 params.id로 식당 데이터 조회로 교체
 const MOCK_RESTAURANT = {
@@ -21,9 +22,10 @@ const RestaurantDetailLayout = ({
 }: {
   children: React.ReactNode;
 }) => {
+  // TODO : 연결된 폴더  id 필요
   return (
     <>
-      <Header title="식당 상세 정보" />
+      <Header title="식당 상세 정보" fallbackRoute={ROUTE.FOLDER.DETAIL("1")} />
       <RestaurantInfoSection restaurant={MOCK_RESTAURANT} />
       <RestaurantTabMenu />
       {children}
