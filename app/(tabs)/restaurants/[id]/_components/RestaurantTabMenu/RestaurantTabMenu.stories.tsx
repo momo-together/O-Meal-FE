@@ -14,7 +14,7 @@ const meta: Meta<typeof RestaurantTabMenu> = {
   parameters: {
     nextjs: {
       navigation: {
-        pathname: "/restaurant/123/info",
+        pathname: "/restaurants/123/info",
         segments: ["info"],
       },
     },
