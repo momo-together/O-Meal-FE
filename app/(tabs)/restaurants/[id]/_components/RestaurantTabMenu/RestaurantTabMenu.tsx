@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams, useSelectedLayoutSegment } from "next/navigation";
-import { createRestaurantInfoRoute, createRestaurantPhotoRoute, createRestaurantWikiRoute } from "@/constants/routes";
+import { ROUTE } from "@/constants/routes";
 
 interface TabInfoType {
   name: string;
@@ -11,9 +11,9 @@ interface TabInfoType {
 }
 
 const getTabInfo = (id: string): TabInfoType[] => [
-  { name: "info", label: "정보", url: createRestaurantInfoRoute(id) },
-  { name: "wiki", label: "위키", url: createRestaurantWikiRoute(id) },
-  { name: "photo", label: "사진", url: createRestaurantPhotoRoute(id) },
+  { name: "info", label: "정보", url: ROUTE.RESTAURANT.INFO(id) },
+  { name: "wiki", label: "위키", url: ROUTE.RESTAURANT.WIKI(id) },
+  { name: "photo", label: "사진", url: ROUTE.RESTAURANT.PHOTO(id) },
 ];
 
 const RestaurantTabMenu = () => {
