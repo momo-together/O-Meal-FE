@@ -1,0 +1,28 @@
+name: Claude Agent
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  claude:
+    if: |
+      contains(github.event.label.name, 'claude') &&
+      (github.event.issue.author_association == 'MEMBER' ||
+       github.event.issue.author_association == 'OWNER')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: "--max-turns 30"
