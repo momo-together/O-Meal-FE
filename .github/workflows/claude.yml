@@ -26,3 +26,6 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: "--max-turns 30"
+          prompt: |
+            브랜치명 규칙: feature/#이슈번호-간단한-설명 (예: feature/#58-header-scroll)
+            CLAUDE.md와 .claude/guides/ 문서를 읽고 작업을 시작하라.
