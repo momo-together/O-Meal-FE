@@ -26,6 +26,8 @@
 
 - **pnpm** (workspace 지원)
 
+---
+
 ## 작업 유형별 가이드
 
 모든 작업은 `.claude/guides/init.md`를 가장 먼저 읽는 것으로 시작한다.
@@ -38,6 +40,8 @@
 | 3    | 커밋 시               | `.claude/guides/commit.md`       |
 | 4    | PR 작성 시            | `.claude/guides/pr.md`           |
 
+---
+
 ## 코드 퀄리티 기준
 
 모든 작업에서 아래 문서를 코드 품질 기준으로 참고한다.
@@ -49,21 +53,50 @@
 외부에서 사용되는 인터페이스, 커스텀 훅, 유틸리티 함수 등 명세가 있는 모든 곳에 JSDoc을 작성한다.
 
 ```typescript
+/**
+ * 날짜를 YYYY-MM-DD 형식으로 포맷팅한다.
+ * @param date - 포맷팅할 날짜
+ * @returns 포맷팅된 날짜 문자열. 유효하지 않으면 빈 문자열 반환.
+ */
+export const formatDate = (date: Date | null): string => {
+  // ...
+};
+
+/**
+ * 좋아요 상태를 관리하는 훅
+ * @param initialValue - 초기 좋아요 상태
+ */
+const useLike = (initialValue: boolean) => {
+  // ...
+};
+```
+
+---
 
 ## 프로젝트 구조
 
 ```
-
-app/ # Next.js App Router
-layout.tsx # Root layout (Pretendard, SUIT 폰트 CDN)
-globals.css # 디자인 토큰 + 타이포그래피 유틸리티
+app/                    # Next.js App Router
+  layout.tsx            # Root layout (Pretendard, SUIT 폰트 CDN)
+  globals.css           # 디자인 토큰 + 타이포그래피 유틸리티
 
 assets/
-icons/ # SVG 아이콘 (add, like, home, user)
+  icons/                # SVG 아이콘 (add, like, home, user)
 
-components/ # 공통 컴포넌트
+components/             # 공통 컴포넌트
 
-````
+.claude/
+  guides/
+    init.md
+    ui-component.md
+    feature.md
+    commit.md
+    pr.md
+  skills/
+    vercel-react-best-practices
+```
+
+---
 
 ## 디자인 토큰 (globals.css)
 
@@ -73,6 +106,8 @@ components/ # 공통 컴포넌트
 - **Typography**: `typo-display1`, `typo-h1-title`, `typo-h2-sub`, `typo-body1`, `typo-body2`, `typo-caption`, `typo-button`, `typo-button-sm`
 - **Fonts**: Pretendard Variable (본문), SUIT Variable (제목)
 - **Layout**: `max-w-layout` (375px)
+
+---
 
 ## 코딩 컨벤션
 
@@ -115,7 +150,7 @@ const Component = ({ propName, optionalProp = false }: ComponentProps) => {
 };
 
 export default Component;
-````
+```
 
 #### 3. 스타일링
 
@@ -187,6 +222,8 @@ useEffect(() => {
 - `import Icon from "@/assets/icons/name.svg"` 패턴 사용 (기본 import = React 컴포넌트)
 - URL 문자열이 필요한 경우에만 `import iconUrl from "@/assets/icons/name.svg?url"` 사용
 
+---
+
 ### 테스팅 규칙
 
 #### 도메인 로직 테스트
@@ -201,7 +238,6 @@ useEffect(() => {
 
 ```typescript
 // 1. Red - 테스트 먼저 작성 (실패)
-// utils/formatDate.test.ts
 import { formatDate } from "./formatDate";
 
 describe("formatDate", () => {
@@ -216,7 +252,6 @@ describe("formatDate", () => {
 });
 
 // 2. Green - 테스트를 통과하는 코드 작성
-// utils/formatDate.ts
 export const formatDate = (date: Date | null): string => {
   if (!date) return "";
   const year = date.getFullYear();
@@ -224,8 +259,6 @@ export const formatDate = (date: Date | null): string => {
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
-
-// 3. Refactor - 필요시 리팩토링
 ```
 
 #### 테스트 커버리지 목표
@@ -236,12 +269,11 @@ export const formatDate = (date: Date | null): string => {
 #### 테스트 실행
 
 ```bash
-# 테스트 실행
 pnpm test
-
-# watch 모드
 pnpm test:watch
 ```
+
+---
 
 ## 개발 워크플로우
 
@@ -258,14 +290,12 @@ pnpm storybook    # Storybook 실행 (port 6006)
 ### 코드 품질 관리
 
 ```bash
-npx @biomejs/biome check .     # 린트 검사
-npx @biomejs/biome format .    # 포맷팅
-npx @biomejs/biome check --write .  # 자동 수정
+npx @biomejs/biome check .
+npx @biomejs/biome format .
+npx @biomejs/biome check --write .
 ```
 
 ### Figma 디자인 구현 (MCP 연동)
-
-Figma MCP를 통해 디자인을 코드로 변환할 수 있습니다.
 
 #### URL 형식
 
@@ -275,11 +305,9 @@ https://figma.com/design/:fileKey/:fileName?node-id=:nodeId
 
 #### 구현 프로세스
 
-1. **Figma URL 제공**: 구현할 컴포넌트의 Figma URL 전달
-2. **디자인 컨텍스트 조회**: MCP를 통해 디자인 정보, 스타일, 에셋 URL 추출
-3. **컴포넌트 구현**: 프로젝트 컨벤션에 맞게 코드 생성
-   - Tailwind CSS 사용
-   - 접근성(a11y) 속성 포함
+1. Figma URL 제공
+2. MCP를 통해 디자인 정보, 스타일, 에셋 URL 추출
+3. 프로젝트 컨벤션에 맞게 코드 생성 (Tailwind CSS, 접근성 포함)
 
 #### 사용 가능한 MCP 도구
 
@@ -288,18 +316,26 @@ https://figma.com/design/:fileKey/:fileName?node-id=:nodeId
 - `get_variable_defs`: 디자인 변수(색상, 폰트 등) 조회
 - `get_metadata`: 노드 구조 메타데이터 조회
 
+---
+
 ## 주의사항
 
 1. **접근성을 고려**한 마크업과 ARIA 속성 사용
 2. **TypeScript strict mode** 준수 - any 타입 사용 지양
 3. **Biome 규칙** 준수 - 커밋 전 반드시 검사
 4. **테스트 작성** - Vitest를 통한 도메인 로직 테스트
-5. **Tailwind v4 문법 안내** - 스타일링 코드 작성/리뷰 시 현재 작업에 유용한 Tailwind CSS v4 문법이 있다면 사용자에게 소개할 것 (상세: 코딩 컨벤션 > 3-1 참고)
+5. **Tailwind v4 문법 안내** - 스타일링 코드 작성/리뷰 시 현재 작업에 유용한 Tailwind v4 문법이 있다면 소개할 것 (상세: 코딩 컨벤션 > 3-1 참고)
+6. **빌드/타입 에러** - 에러가 있는 상태로 PR 올리지 않을 것. 해결 불가 시 PR에 TODO 주석과 이유 명시
+
+---
 
 ## Git 브랜치 전략
 
-- `develop`: 개발 브랜치
+- `develop`: 개발 브랜치 (default)
 - Feature 브랜치에서 작업 후 develop으로 PR
+- 브랜치명 규칙: `.claude/guides/init.md` 참고
+
+---
 
 ## Source of Truth
 
