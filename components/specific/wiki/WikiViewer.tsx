@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
 import ChevronRightIcon from "@/assets/icons/chevron-right.svg";
 import EditIcon from "@/assets/icons/edit.svg";
 
@@ -76,6 +77,7 @@ const WikiViewer = ({ sections }: WikiViewerProps) => {
                 className="typo-body2 px-5 py-4 text-primary-text"
               >
                 <ReactMarkdown
+                  remarkPlugins={[remarkBreaks]}
                   components={{
                     p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
                     ul: ({ children }) => <ul className="list-disc space-y-1 pl-5">{children}</ul>,
