@@ -79,11 +79,20 @@ const useLike = (initialValue: boolean) => {
 app/                    # Next.js App Router
   layout.tsx            # Root layout (Pretendard, SUIT 폰트 CDN)
   globals.css           # 디자인 토큰 + 타이포그래피 유틸리티
+  (tabs)/
+    mypage/
+      profile/
+        validator/      # 도메인별 유효성 검사 로직 (validate.ts + validator.ts + *.test.ts)
 
 assets/
   icons/                # SVG 아이콘 (add, like, home, user)
 
 components/             # 공통 컴포넌트
+
+constants/              # 도메인 상수
+  constraints.ts        # 도메인 제약 조건 (최소·최대 길이, 정규식 등)
+  error.ts              # 에러 메시지 상수
+  message.ts            # UI 표시용 메시지 상수
 
 .claude/
   guides/
