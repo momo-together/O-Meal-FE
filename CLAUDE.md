@@ -28,20 +28,6 @@
 
 ---
 
-## 작업 유형별 가이드
-
-모든 작업은 `.claude/guides/init.md`를 가장 먼저 읽는 것으로 시작한다.
-
-| 순서 | 시점                  | 가이드 문서                      |
-| ---- | --------------------- | -------------------------------- |
-| 1    | 작업 시작 전          | `.claude/guides/init.md`         |
-| 2    | 작업 중 - UI/컴포넌트 | `.claude/guides/ui-component.md` |
-| 2    | 작업 중 - 기능 구현   | `.claude/guides/feature.md`      |
-| 3    | 커밋 시               | `.claude/guides/commit.md`       |
-| 4    | PR 작성 시            | `.claude/guides/pr.md`           |
-
----
-
 ## 코드 퀄리티 기준
 
 모든 작업에서 아래 문서를 코드 품질 기준으로 참고한다.
@@ -86,12 +72,9 @@ assets/
 components/             # 공통 컴포넌트
 
 .claude/
-  guides/
-    init.md
-    ui-component.md
-    feature.md
-    commit.md
-    pr.md
+  conventions/
+    branch.md           # 브랜치 네이밍 컨벤션
+    ui-conventions.md   # UI 코딩 컨벤션
   skills/
     vercel-react-best-practices
 ```
@@ -333,7 +316,7 @@ https://figma.com/design/:fileKey/:fileName?node-id=:nodeId
 
 - `develop`: 개발 브랜치 (default)
 - Feature 브랜치에서 작업 후 develop으로 PR
-- 브랜치명 규칙: `.claude/guides/init.md` 참고
+- 브랜치명: `type/#이슈번호-간단한-설명` (상세: `.claude/conventions/branch.md`)
 
 ---
 

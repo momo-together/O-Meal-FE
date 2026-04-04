@@ -15,9 +15,8 @@ user-invocable: true
 스킬 진입 즉시, 구현을 시작하기 **전에** 아래 파일을 순서대로 읽습니다.
 이후 플로우 진행 중에는 다시 열지 않아도 됩니다.
 
-1. `.claude/guides/init.md` — 공통 선행 가이드
-2. `.claude/conventions/ui-conventions.md` — 파일 구조, 스타일, 접근성, Storybook 등 코딩 규칙
-3. `.claude/skills/make-ui/references/gotchas.md` — 이 프로젝트에서 반복되는 함정 패턴
+1. `.claude/conventions/ui-conventions.md` — 파일 구조, 스타일, 접근성, Storybook 등 코딩 규칙
+2. `.claude/skills/make-ui/references/gotchas.md` — 이 프로젝트에서 반복되는 함정 패턴
 
 ---
 

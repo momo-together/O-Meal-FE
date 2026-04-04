@@ -57,7 +57,6 @@ gh issue view <number> --json title,body,labels,assignees,milestone
 
 ### 2-1. 컨벤션 파일 읽기 (각 1회)
 
-- `.claude/guides/init.md` — 공통 선행 가이드 (가장 먼저 읽기)
 - `.claude/conventions/ui-conventions.md` — 파일 구조, 스타일, 접근성 규칙
 - `CLAUDE.md` — 이미 컨텍스트에 있으면 skip
 
