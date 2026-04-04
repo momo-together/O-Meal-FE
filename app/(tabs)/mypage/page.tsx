@@ -43,13 +43,13 @@ const MyPage = () => {
         <p className="typo-caption text-secondary-subtext">{mockData.school} 인증됨</p>
       </section>
 
-      <nav className="flex flex-col gap-3 px-4" aria-label="마이페이지 메뉴">
+      <nav className="flex flex-col gap-3" aria-label="마이페이지 메뉴">
         {navigationInfo.map((info) => (
           <NavigationLink key={info.name} name={info.name} Icon={info.Icon} navigateUrl={info.navigateUrl} />
         ))}
       </nav>
 
-      <div className="px-4 pt-6 pb-8 w-full flex justify-center items-center">
+      <div className="pt-6 pb-8 w-full flex justify-center items-center">
         <Button variant="tertiary">로그아웃</Button>
       </div>
     </>

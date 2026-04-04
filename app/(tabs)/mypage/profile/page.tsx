@@ -19,7 +19,7 @@ const ProfileEditPage = () => {
     <>
       <Header title="프로필 수정" />
 
-      <section className="px-4 py-6" aria-label="프로필 정보 수정">
+      <section className="py-6" aria-label="프로필 정보 수정">
         <h2 className="typo-h2-sub">프로필 정보 수정</h2>
 
         <div className="flex justify-center py-6">
