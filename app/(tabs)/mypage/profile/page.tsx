@@ -6,7 +6,7 @@ import Button from "@/components/ui/button/button/Button";
 import LabeledInput from "@/components/ui/input/labeledInput/LabeledInput";
 import ProfileInput from "../_components/profileInput/ProfileInput";
 import {
-  validateNickNameOnBlur,
+  validateNicknameOnBlur,
   validateNicknameOnChange,
 } from "./validator/validator";
 import { CONSTRAINTS } from "@/constants/constraints";
@@ -29,7 +29,7 @@ const ProfileEditPage = () => {
 
   const handleNicknameBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setNicknameError(validateNickNameOnBlur(value));
+    setNicknameError(validateNicknameOnBlur(value));
   };
 
   return (

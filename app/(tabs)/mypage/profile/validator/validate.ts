@@ -1,9 +1,10 @@
 import { CONSTRAINTS } from "@/constants/constraints";
 
 /**
- * 닉네임이 2자 이상인지 확인한다.
+ * 닉네임이 최솟값 이상인지 확인한다.
  * @param value - 검사할 문자열
- * @returns 2자 미만이면 true, 아니면 false
+ * @param minLength - 최소 허용 길이
+ * @returns 최솟값 이상이면 true, 아니면 false
  */
 export const satisfiesMinLength = (
   value: string,
@@ -26,10 +27,10 @@ export const satisfiesMaxLength = (
 };
 
 /**
- * 닉네임에 허용되지 않는 특수문자가 포함되어 있는지 확인한다.
+ * 닉네임에 허용되지 않는 특수문자가 없는지 확인한다.
  * 허용 문자: 영문 대소문자, 숫자, 한글, 하이픈(-), 언더스코어(_), 닷(.), 공백
  * @param value - 검사할 문자열
- * @returns 특수문자가 포함되면 true, 아니면 false
+ * @returns 허용되지 않는 특수문자가 없으면 true, 있으면 false
  */
 export const satisfiesSpecialChar = (value: string): boolean => {
   return !new RegExp(CONSTRAINTS.NICKNAME.DISALLOWED_CHAR_REG).test(value);
@@ -47,6 +48,11 @@ export const extractSpecialChars = (value: string): string[] => {
   return matches ? [...new Set(matches)] : [];
 };
 
-export const satisfiesNotEmpty = (value: string) => {
+/**
+ * 닉네임에 공백 문자가 포함되어 있지 않은지 확인한다.
+ * @param value - 검사할 문자열
+ * @returns 공백이 없으면 true, 공백이 포함되면 false
+ */
+export const satisfiesNoSpaces = (value: string): boolean => {
   return !value.includes(" ");
 };
