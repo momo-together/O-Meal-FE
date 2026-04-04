@@ -79,11 +79,20 @@ const useLike = (initialValue: boolean) => {
 app/                    # Next.js App Router
   layout.tsx            # Root layout (Pretendard, SUIT 폰트 CDN)
   globals.css           # 디자인 토큰 + 타이포그래피 유틸리티
+  (tabs)/
+    mypage/
+      profile/
+        validator/      # 도메인별 유효성 검사 로직 (validate.ts + validator.ts + *.test.ts)
 
 assets/
   icons/                # SVG 아이콘 (add, like, home, user)
 
 components/             # 공통 컴포넌트
+
+constants/              # 도메인 상수
+  constraints.ts        # 도메인 제약 조건 (최소·최대 길이, 정규식 등)
+  error.ts              # 에러 메시지 상수
+  message.ts            # UI 표시용 메시지 상수
 
 .claude/
   guides/
@@ -315,6 +324,17 @@ https://figma.com/design/:fileKey/:fileName?node-id=:nodeId
 - `get_screenshot`: 노드 스크린샷 생성
 - `get_variable_defs`: 디자인 변수(색상, 폰트 등) 조회
 - `get_metadata`: 노드 구조 메타데이터 조회
+
+---
+
+## 작업 범위 원칙
+
+**요청된 것만 수정한다.** 이 원칙이 모든 작업에 최우선으로 적용된다.
+
+- 요청된 파일·함수·로직만 수정할 것. 관련 없는 코드는 건드리지 않는다.
+- 작업 중 다른 버그나 개선 사항이 보여도 먼저 수정하지 않는다. 발견했다면 텍스트로 알리기만 한다.
+- 테스트 실행, 빌드 확인, 리팩토링은 명시적으로 요청받은 경우에만 수행한다.
+- 추가 작업이 필요하다고 판단되면 수행하기 전에 반드시 사용자에게 확인한다.
 
 ---
 
