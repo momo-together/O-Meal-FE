@@ -25,35 +25,35 @@ describe("satisfiesMinLength", () => {
   });
 });
 
-describe("exceedsMaxLength", () => {
-  it("최대 길이를 초과하면 true를 반환해야 한다.", () => {
-    expect(satisfiesMaxLength("12345678901", 10)).toBe(true);
+describe("satisfiesMaxLength", () => {
+  it("최대 길이를 초과하면 false를 반환해야 한다.", () => {
+    expect(satisfiesMaxLength("12345678901", 10)).toBe(false);
   });
 
-  it("최대 길이와 같으면 false를 반환해야 한다.", () => {
-    expect(satisfiesMaxLength("1234567890", 10)).toBe(false);
+  it("최대 길이와 같으면 true를 반환해야 한다.", () => {
+    expect(satisfiesMaxLength("1234567890", 10)).toBe(true);
   });
 
-  it("최대 길이 미만이면 false를 반환해야 한다.", () => {
-    expect(satisfiesMaxLength("abc", 10)).toBe(false);
+  it("최대 길이 미만이면 true를 반환해야 한다.", () => {
+    expect(satisfiesMaxLength("abc", 10)).toBe(true);
   });
 });
 
-describe("hasSpecialChar", () => {
-  it("특수문자가 포함되면 true를 반환해야 한다.", () => {
-    expect(satisfiesSpecialChar("hello!")).toBe(true);
-    expect(satisfiesSpecialChar("닉네임@")).toBe(true);
-    expect(satisfiesSpecialChar("test#1")).toBe(true);
+describe("satisfiesSpecialChar", () => {
+  it("특수문자가 포함되면 false를 반환해야 한다.", () => {
+    expect(satisfiesSpecialChar("hello!")).toBe(false);
+    expect(satisfiesSpecialChar("닉네임@")).toBe(false);
+    expect(satisfiesSpecialChar("test#1")).toBe(false);
   });
 
-  it("한글, 영문, 숫자만 있으면 false를 반환해야 한다.", () => {
-    expect(satisfiesSpecialChar("오밀오밀")).toBe(false);
-    expect(satisfiesSpecialChar("hello123")).toBe(false);
-    expect(satisfiesSpecialChar("닉네임1")).toBe(false);
+  it("한글, 영문, 숫자만 있으면 true를 반환해야 한다.", () => {
+    expect(satisfiesSpecialChar("오밀오밀")).toBe(true);
+    expect(satisfiesSpecialChar("hello123")).toBe(true);
+    expect(satisfiesSpecialChar("닉네임1")).toBe(true);
   });
 
   it("공백은 특수문자로 취급하지 않아야 한다.", () => {
-    expect(satisfiesSpecialChar("hello world")).toBe(false);
+    expect(satisfiesSpecialChar("hello world")).toBe(true);
   });
 });
 

@@ -11,9 +11,9 @@ describe("validateNickname", () => {
     expect(validateNicknameOnChange("닉네임 ok")).toBe("");
   });
 
-  it("닉네임이 비어있으면 에러 메시지를 반환해야 한다.", () => {
-    expect(validateNicknameOnChange("")).not.toBe("");
-    expect(validateNicknameOnChange("   ")).not.toBe("");
+  it("닉네임이 비어있어도 에러 메시지를 반환하지 않아야 한다. (최소 길이 검사는 onBlur에서 수행)", () => {
+    expect(validateNicknameOnChange("")).toBe("");
+    expect(validateNicknameOnChange("   ")).toBe("");
   });
 
   it(`닉네임이 ${MAX_NICKNAME_LENGTH}자를 초과하면 에러 메시지를 반환해야 한다.`, () => {
@@ -38,8 +38,8 @@ describe("validateNickname", () => {
     expect(result).toContain("@");
   });
 
-  it("빈 값 검사를 최대 길이보다 먼저 수행해야 한다.", () => {
-    expect(validateNicknameOnChange("")).toBe("닉네임을 입력해 주세요.");
+  it("빈 값은 onChange에서 에러를 반환하지 않아야 한다.", () => {
+    expect(validateNicknameOnChange("")).toBe("");
   });
 
   it("최대 길이 검사를 특수문자보다 먼저 수행해야 한다.", () => {
