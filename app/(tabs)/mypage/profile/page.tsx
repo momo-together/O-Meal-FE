@@ -5,7 +5,11 @@ import Header from "@/components/layout/header/Header";
 import Button from "@/components/ui/button/button/Button";
 import LabeledInput from "@/components/ui/input/labeledInput/LabeledInput";
 import ProfileInput from "../_components/profileInput/ProfileInput";
-import { MAX_NICKNAME_LENGTH, validateNickname } from "./validator/validator";
+import {
+  validateNickNameOnBlur,
+  validateNicknameOnChange,
+} from "./validator/validator";
+import { CONSTRAINTS } from "@/constants/constraints";
 
 // TODO : mockData 서버 데이터 연결
 const mockData = {
@@ -20,7 +24,12 @@ const ProfileEditPage = () => {
   const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setNickname(value);
-    setNicknameError(validateNickname(value));
+    setNicknameError(validateNicknameOnChange(value));
+  };
+
+  const handleNicknameBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setNicknameError(validateNickNameOnBlur(value));
   };
 
   return (
@@ -40,8 +49,9 @@ const ProfileEditPage = () => {
             label="닉네임"
             value={nickname}
             onChange={handleNicknameChange}
+            onBlur={handleNicknameBlur}
             errorMessage={nicknameError}
-            maxLength={MAX_NICKNAME_LENGTH}
+            maxLength={CONSTRAINTS.NICKNAME.MAX_LENGTH}
           />
 
           <div className="flex flex-col justify-center gap-2">
@@ -55,7 +65,9 @@ const ProfileEditPage = () => {
                 className="w-full typo-body2 rounded-xl py-3 px-4 border border-gray-200 bg-gray-100 text-gray-400 pointer-events-none"
                 aria-label="인증된 대학교"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 typo-caption text-gray-400">인증 완료</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 typo-caption text-gray-400">
+                인증 완료
+              </span>
             </div>
           </div>
         </div>

@@ -1,6 +1,11 @@
-import { exceedsMaxLength, extractSpecialChars, hasSpecialChar, isEmpty } from "./validate";
-
-export const MAX_NICKNAME_LENGTH = 10;
+import { NICKNAME_ERROR_MESSAGES } from "@/constants/error";
+import {
+  satisfiesSpecialChar,
+  satisfiesMaxLength,
+  satisfiesMinLength,
+  satisfiesNotEmpty,
+} from "./validate";
+import { CONSTRAINTS } from "@/constants/constraints";
 
 /**
  * 닉네임 유효성을 검사하고 에러 메시지를 반환한다.
@@ -8,18 +13,27 @@ export const MAX_NICKNAME_LENGTH = 10;
  * @param value - 검사할 닉네임
  * @returns 에러 메시지. 유효하면 빈 문자열 반환.
  */
-export const validateNickname = (value: string): string => {
-  if (isEmpty(value)) {
-    return "닉네임을 입력해 주세요.";
+export const validateNicknameOnChange = (value: string): string => {
+  if (!satisfiesMaxLength(value, CONSTRAINTS.NICKNAME.MAX_LENGTH)) {
+    return NICKNAME_ERROR_MESSAGES.EXCEEDS_MAX_LENGTH(
+      CONSTRAINTS.NICKNAME.MAX_LENGTH,
+    );
   }
 
-  if (exceedsMaxLength(value, MAX_NICKNAME_LENGTH)) {
-    return `닉네임은 최대 ${MAX_NICKNAME_LENGTH}자까지 입력할 수 있습니다.`;
+  if (!satisfiesSpecialChar(value)) {
+    return NICKNAME_ERROR_MESSAGES.SPECIAL_CHAR();
   }
 
-  if (hasSpecialChar(value)) {
-    const specialChars = extractSpecialChars(value);
-    return `${specialChars.join("")} 은(는) 입력할 수 없습니다.`;
+  if (!satisfiesNotEmpty(value)) {
+    return NICKNAME_ERROR_MESSAGES.DISALLOWED_EMPTY;
+  }
+
+  return "";
+};
+
+export const validateNickNameOnBlur = (value: string): string => {
+  if (!satisfiesMinLength(value, CONSTRAINTS.NICKNAME.MIN_LENGTH)) {
+    return NICKNAME_ERROR_MESSAGES.EMPTY;
   }
 
   return "";
