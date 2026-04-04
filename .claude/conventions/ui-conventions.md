@@ -162,7 +162,35 @@ export const Default: Story = {
 
 ---
 
-## 9. SVG 아이콘 Import
+## 9. HTML 네이티브 태그 확장
+
+HTML 네이티브 태그를 감싸는 컴포넌트는 반드시 해당 태그의 속성을 extend한다.
+
+```typescript
+// ✅ 네이티브 태그 확장
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary";
+}
+
+// ❌ 직접 재정의 금지
+interface ButtonProps {
+  onClick: () => void;
+  disabled?: boolean;
+}
+```
+
+- 확장 시 커스텀 props와 네이티브 props가 충돌하지 않도록 주의
+- 컴포넌트 내부에서 `...rest`로 나머지 네이티브 속성 전달
+
+```typescript
+const Button = ({ variant, ...rest }: ButtonProps) => {
+  return <button className={...} {...rest} />;
+};
+```
+
+---
+
+## 10. SVG 아이콘 Import
 
 ```typescript
 // React 컴포넌트로 사용

@@ -23,7 +23,7 @@ const ActivityPage = () => {
     <>
       <Header title="내 활동 내역" />
 
-      <section className="px-4 py-6" aria-label="내 활동 내역 목록">
+      <section className="py-6" aria-label="내 활동 내역 목록">
         <h2 className="typo-h2-sub">내 활동 내역</h2>
 
         <div className="mt-4 flex flex-col gap-3">

@@ -21,7 +21,7 @@ const ScrapButton = ({ viewCount }: ScrapButtonProps) => {
   return (
     <div className="inline-flex items-end gap-1">
       <span className="typo-caption text-gray-400 whitespace-nowrap">{displayedCount}회</span>
-      <Button variant="tertiary" aria-label="스크랩" onClick={changeCount}>
+      <Button variant="tertiary" aria-label="스크랩" onClick={(e) => { e.preventDefault(); changeCount(); }}>
         <BounceScale
           isActive={isScrapped}
           className={clsx("flex justify-center items-center w-5 h-5", isScrapped ? "text-status-review [&_path]:fill-status-review" : "text-gray-400")}

@@ -13,7 +13,7 @@ const FavoritesPage = () => {
     <>
       <Header title="찜한 맛집" />
 
-      <section className="px-4 py-6" aria-label="찜한 맛집 목록">
+      <section className="py-6" aria-label="찜한 맛집 목록">
         <h2 className="typo-h2-sub">
           찜한 맛집 <span className="typo-body2 text-gray-400">{favorites.length}</span>
         </h2>
