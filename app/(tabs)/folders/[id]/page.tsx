@@ -2,6 +2,7 @@ import Header from "@/components/layout/header/Header";
 import HashtagButton from "@/components/specific/hashtag/hashtagButton/HashtagButton";
 import { ROUTE } from "@/constants/routes";
 import RestaurantCard from "../_components/restaurantCard/RestaurantCard";
+import SortDropdown from "./_components/SortDropdown";
 
 interface RestaurantData {
   id: string;
@@ -65,19 +66,21 @@ interface FolderRestaurantListPageProps {
   params: Promise<{ id: string }>;
 }
 
-const FolderRestaurantListPage = async ({ params }: FolderRestaurantListPageProps) => {
+const FolderRestaurantListPage = async ({
+  params,
+}: FolderRestaurantListPageProps) => {
   const { id } = await params;
   const folder = MOCK_FOLDERS[id] ?? { emoji: "📁", title: "폴더" };
 
   return (
     <>
-      <Header title={`${folder.emoji} ${folder.title}`} fallbackRoute={ROUTE.FOLDER.INDEX} />
+      <Header
+        title={`${folder.emoji} ${folder.title}`}
+        fallbackRoute={ROUTE.FOLDER.INDEX}
+      />
       <div className="flex flex-col gap-6 pb-40">
         <div className="flex items-center gap-2">
-          {/* TODO: [SortDropdown] - 거리순 정렬 드롭다운 구현 필요 */}
-          <div className="h-8 w-24 border border-dashed border-gray-200 rounded-full flex items-center justify-center typo-caption text-gray-400" aria-hidden="true">
-            거리순
-          </div>
+          <SortDropdown />
           <HashtagButton text="영업중" isSelected={false} />
         </div>
 
