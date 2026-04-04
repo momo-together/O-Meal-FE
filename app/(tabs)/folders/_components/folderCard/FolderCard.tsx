@@ -1,6 +1,10 @@
+import Link from "next/link";
+import { ROUTE } from "@/constants/routes";
 import ScrapButton from "./ScrapButton";
 
 interface FolderCardProps {
+  /** 폴더 ID */
+  id: string;
   /** 폴더 이모지 */
   emoji: string;
   /** 폴더 제목 */
@@ -13,20 +17,22 @@ interface FolderCardProps {
   viewCount: number;
 }
 
-const FolderCard = ({ emoji, title, description, savedCount, viewCount }: FolderCardProps) => {
+const FolderCard = ({ id, emoji, title, description, savedCount, viewCount }: FolderCardProps) => {
   return (
-    <article className="bg-bg-white rounded-2xl p-4 flex flex-col gap-3">
-      <div className="flex flex-col gap-1">
-        <h2 className="typo-body1 text-primary-text">
-          {emoji} {title}
-        </h2>
-        <p className="typo-body2 text-gray-600 line-clamp-2">{description}</p>
-      </div>
-      <div className="flex items-center justify-between">
-        <span className="typo-caption text-gray-400">{savedCount}곳 저장됨</span>
-        <ScrapButton viewCount={viewCount} />
-      </div>
-    </article>
+    <Link href={ROUTE.FOLDER.DETAIL(id)} aria-label={`${emoji} ${title} 폴더 보기`}>
+      <article className="bg-bg-white rounded-2xl p-4 flex flex-col gap-3">
+        <div className="flex flex-col gap-1">
+          <h2 className="typo-body1 text-primary-text">
+            {emoji} {title}
+          </h2>
+          <p className="typo-body2 text-gray-600 line-clamp-2">{description}</p>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="typo-caption text-gray-400">{savedCount}곳 저장됨</span>
+          <ScrapButton viewCount={viewCount} />
+        </div>
+      </article>
+    </Link>
   );
 };
 
