@@ -26,10 +26,10 @@ export default Component;
 
 ### 디렉토리 구조
 
-- 공통 컴포넌트: `components/ui/<componentName>/Component.tsx`
-- 도메인 컴포넌트: `components/specific/<domain>/Component.tsx`
-- 레이아웃 컴포넌트: `components/layout/<componentName>/Component.tsx`
-- Storybook 스토리: 컴포넌트 파일 옆에 `Component.stories.tsx`
+- 공통 컴포넌트: `components/ui/<componentName>/<ComponentName>.tsx` (PascalCase 파일명)
+- 도메인 컴포넌트: `components/specific/<domain>/<ComponentName>.tsx`
+- 레이아웃 컴포넌트: `components/layout/<componentName>/<ComponentName>.tsx`
+- Storybook 스토리: 컴포넌트 파일 옆에 `<ComponentName>.stories.tsx`
 
 ---
 

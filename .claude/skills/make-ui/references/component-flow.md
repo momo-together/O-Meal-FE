@@ -109,17 +109,17 @@ export const AreaNamePlaceholder = styled.div`
 
 ## Step 6. Storybook 스토리 작성
 
-`src/stories/components/{ComponentName}.stories.tsx`를 생성합니다.
+`components/{category}/{componentName}/{ComponentName}.stories.tsx`를 생성합니다.
 
 - Props의 주요 조합 + 엣지 케이스(disabled, loading, error 등) Story 작성
-- `.storybook/preview.ts`에 ThemeProvider 데코레이터 설정 여부 먼저 확인 (gotchas.md G3)
+- Storybook title은 컴포넌트 파일의 디렉토리 경로를 따릅니다 (예: `layout/Header/Header`)
 
 ```typescript
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import ComponentName from "../../components/path/ComponentName";
+import type { Meta, StoryObj } from "@storybook/nextjs";
+import ComponentName from "@/components/{category}/{componentName}/ComponentName";
 
 const meta: Meta<typeof ComponentName> = {
-  title: "Component/ComponentName",
+  title: "{category}/{ComponentName}/{ComponentName}",
   component: ComponentName,
 };
 
@@ -136,7 +136,7 @@ export const Default: Story = {
 
 ## Step 7. 완료 보고
 
-```
+```text
 ✅ 컴포넌트 구현 완료
 
 📁 생성된 파일:

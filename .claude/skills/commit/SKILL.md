@@ -73,9 +73,10 @@ user-invocable: true
 
 계획 출력 직후 순서대로 실행합니다:
 
-1. `git add`로 해당 커밋 파일 스테이지
-2. `git commit`으로 커밋 실행
-3. 모든 커밋 완료 후 결과 출력
+1. 분석 시점의 staged 상태를 기준으로 커밋 대상 확정
+2. 필요 시 `git commit --only <files>` 또는 hunk 단위 staging(`git add -p`)으로 범위 고정하여 unstaged 변경이 포함되지 않도록 주의
+3. `git commit` 실행
+4. 모든 커밋 완료 후 결과 출력
 
 ```
 ✅ 모든 커밋이 완료되었습니다!

@@ -20,14 +20,14 @@ GitHub 이슈 내용과 현재 코드베이스 구조를 분석해 구체적인 
 
 인수에서 이슈 번호를 추출합니다. 허용 형식: `#12`, `12`.
 
-```
+```text
 /make-plan #12
 /make-plan 12
 ```
 
 이슈 번호를 파싱하지 못하면 아래 메시지를 출력하고 중단합니다:
 
-```
+```text
 ❌ 이슈 번호가 필요합니다.
 `/make-plan #12` 형태로 이슈 번호를 입력해주세요.
 ```
@@ -42,7 +42,7 @@ gh issue view <number> --json title,body,labels,assignees,milestone
 
 실패(원격 저장소 미연결, 권한 부족 등)하면:
 
-```
+```text
 ⚠️ GitHub 이슈를 불러오지 못했습니다. 이슈 내용을 직접 붙여넣어 주세요.
 ```
 
@@ -57,6 +57,7 @@ gh issue view <number> --json title,body,labels,assignees,milestone
 
 ### 2-1. 컨벤션 파일 읽기 (각 1회)
 
+- `.claude/guides/init.md` — 공통 선행 가이드 (가장 먼저 읽기)
 - `.claude/conventions/ui-conventions.md` — 파일 구조, 스타일, 접근성 규칙
 - `CLAUDE.md` — 이미 컨텍스트에 있으면 skip
 
@@ -90,7 +91,7 @@ find app components hooks constants styles -maxdepth 2 -type d 2>/dev/null | sor
 
 아래 컨텍스트를 담아 스킬을 호출합니다:
 
-```
+```text
 이슈 제목: <title>
 이슈 본문:
 <body>

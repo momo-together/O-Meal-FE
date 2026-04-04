@@ -25,7 +25,13 @@ gh api user --jq .login            # GitHub 로그인 ID (assignee 설정에 사
 
 ### 브랜치명에서 이슈 번호 추출
 
-브랜치명 패턴 예시: `feature/#12-login`, `chore/#5-settings`, `fix/7-bug`
+브랜치명 패턴 예시:
+
+```text
+feature/#12-login
+chore/#5-settings
+fix/7-bug
+```
 
 - `#` 뒤의 숫자를 이슈 번호로 추출 (예: `#12` → `12`)
 - `#` 없이 숫자만 있는 경우도 허용 (예: `fix/7-bug` → `7`)

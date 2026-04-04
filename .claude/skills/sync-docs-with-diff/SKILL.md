@@ -54,11 +54,11 @@ diff에서 변경된 파일 목록을 분석해 **업데이트가 필요할 수 
 
 | 변경된 파일 패턴 | 확인해야 할 문서 |
 |-----------------|----------------|
-| `components/**` | `CLAUDE.md` (프로젝트 구조), `ui-conventions.md` |
-| `hooks/**` | `CLAUDE.md` (디렉토리 역할) |
-| `app/**` | `CLAUDE.md` (프로젝트 구조) |
-| `constants/**` | `CLAUDE.md` (프로젝트 구조) |
-| `styles/**` | `CLAUDE.md` (디자인 토큰 섹션), `ui-conventions.md` |
+| `components/**`, `src/components/**` | `CLAUDE.md` (프로젝트 구조), `ui-conventions.md` |
+| `hooks/**`, `src/hooks/**` | `CLAUDE.md` (디렉토리 역할) |
+| `app/**`, `src/app/**` | `CLAUDE.md` (프로젝트 구조) |
+| `constants/**`, `src/constants/**` | `CLAUDE.md` (프로젝트 구조) |
+| `styles/**`, `src/styles/**` | `CLAUDE.md` (디자인 토큰 섹션), `ui-conventions.md` |
 | `package.json` | `CLAUDE.md` (기술 스택, 버전, 스크립트) |
 | `*.config.*`, `biome.json`, `tsconfig.*` | `CLAUDE.md` (개발 도구, 설정 섹션) |
 | `.claude/skills/**` | 해당 스킬의 SKILL.md 자체 |
