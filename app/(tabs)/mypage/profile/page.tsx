@@ -5,6 +5,7 @@ import Header from "@/components/layout/header/Header";
 import Button from "@/components/ui/button/button/Button";
 import LabeledInput from "@/components/ui/input/labeledInput/LabeledInput";
 import ProfileInput from "../_components/profileInput/ProfileInput";
+import { MAX_NICKNAME_LENGTH, validateNickname } from "./validator/validator";
 
 // TODO : mockData 서버 데이터 연결
 const mockData = {
@@ -14,6 +15,13 @@ const mockData = {
 
 const ProfileEditPage = () => {
   const [nickname, setNickname] = useState(mockData.name);
+  const [nicknameError, setNicknameError] = useState("");
+
+  const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setNickname(value);
+    setNicknameError(validateNickname(value));
+  };
 
   return (
     <>
@@ -27,7 +35,14 @@ const ProfileEditPage = () => {
         </div>
 
         <div className="flex flex-col gap-2 pt-4">
-          <LabeledInput id="nickname" label="닉네임" value={nickname} onChange={(e) => setNickname(e.target.value)} />
+          <LabeledInput
+            id="nickname"
+            label="닉네임"
+            value={nickname}
+            onChange={handleNicknameChange}
+            errorMessage={nicknameError}
+            maxLength={MAX_NICKNAME_LENGTH}
+          />
 
           <div className="flex flex-col justify-center gap-2">
             <span className="typo-body2">인증 대학교</span>
