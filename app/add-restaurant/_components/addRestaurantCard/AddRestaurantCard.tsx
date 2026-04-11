@@ -1,4 +1,4 @@
-export type RestaurantCategory = "한식" | "일식" | "양식" | "중식" | "기타";
+import type { RestaurantCategory } from "@/types/restaurant";
 
 interface AddRestaurantCardProps {
   /** 식당 이름 */
